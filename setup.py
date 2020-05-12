@@ -8,8 +8,23 @@ import utils
 
 class GroupFairness():
 
-    def __init__(self, batch_size = 250, epoch = 1000, learning_rate = 1e-4, \
-                        l2_regularizer = 0, clip_grad = 40, seed = 1):
+    def __init__(self, batch_size = 500, epoch = 5000, learning_rate = 1e-4, wasserstein_lr = 1e-5, \
+                        l2_regularizer = 0, wasserstein_regularizer = 1e-2, epsilon = 1e0, clip_grad = 40, seed = 1):
+
+        '''
+        Class for enforcing group fairness in classifier
+
+        parameters:
+        batch_size: (int) size of individual batch data
+        epoch: (int) total number of gradient descend iterations
+        learning_rate: (float) learning rate for classifier
+        waserstein_lr: (float) learning rate for dual potentials
+        l2_regularizer: (float) regularization parameter for l2 penalty; activated only when positive
+        wasserstein_regularizer: (float) regularization parameter for wasserstein distances
+        epsilon: (float) regulrization parameter within wasserstein distances; see Seguy et. al.
+        clip_grad: (float) parameter to clip gradient; uses tensorflow.clip_by_norm function
+        seed: (int) 
+        '''
 
         super(GroupFairness, self).__init__()
         self.batch_size = batch_size
@@ -17,23 +32,28 @@ class GroupFairness():
         self.l2_regularizer = l2_regularizer
         self.clip_grad = clip_grad
         self.learning_rate = learning_rate
-        self.optimizer = tf.optimizers.Adam(learning_rate)
+        self.wasserstein_regularizer = wasserstein_regularizer
+        self.wasserstein_lr = wasserstein_lr
+        self.epsilon = epsilon
+        self.classifier_optimizer = tf.optimizers.Adam(learning_rate)
+        self.wasserstein_optimizer = tf.optimizers.Adam(wasserstein_lr)
         self.seed = seed
+        tf.random.set_seed(self.seed)
 
     def set_graph(self, classifier_architecture = [10, 20, 2], classifier_input_shape = (40, ),\
          potential_architecture = [10, 1], potential_input_shape = (2,), activation = tf.nn.relu):
 
         self.classifier = nn_graph.NNGraph(architecture=classifier_architecture, activation=activation, \
             input_shape=classifier_input_shape, name='classifier')
-        self.potential_y0 = [nn_graph.NNGraph(architecture=potential_architecture, activation=activation, \
+        potential_y0 = [nn_graph.NNGraph(architecture=potential_architecture, activation=activation, \
             input_shape=potential_input_shape, name = 'potential-label0-group0'), \
                 nn_graph.NNGraph(architecture=potential_architecture, activation=activation, \
             input_shape=potential_input_shape, name = 'potential-label0-group1')]
-        self.potential_y1 = [nn_graph.NNGraph(architecture=potential_architecture, activation=activation, \
+        potential_y1 = [nn_graph.NNGraph(architecture=potential_architecture, activation=activation, \
             input_shape=potential_input_shape, name = 'potential-label1-group0'), \
                 nn_graph.NNGraph(architecture=potential_architecture, activation=activation, \
             input_shape=potential_input_shape, name = 'potential-label1-group1')]
-
+        self.potentials = [potential_y0, potential_y1]
 
     def create_batch_data(self, data_train, data_test):
         # Tensor slices for train data
@@ -47,7 +67,7 @@ class GroupFairness():
         self.batch_test_data = batch.take(self.epoch)
 
     def wasserstein_distance(self, x1, x2, potential1 = None, potential2 = None, \
-         epsilon = 1e-1, reguralizer = 'entropy'):
+         reguralizer = 'entropy'):
         """
         Given dual potential functions calculates the regularized Wasserstein distance
 
@@ -65,11 +85,10 @@ class GroupFairness():
         reference:
         [1] Seguy et. al.: 'Large-scale optimal transport and mapping estimation'
         """
-        self.epsilon = epsilon
         if potential1 == None:
-            potential1 = self.potential_y0[0]
+            potential1 = self.potentials[0][0]
         if potential2 == None:
-            potential2 = self.potential_y0[1]
+            potential2 = self.potentials[0][1]
         u = potential1(x1)
         v = potential2(x2)
         x1_expanded = tf.tile(tf.expand_dims(x1, axis = 1), [1, x2.shape[0], 1]) # shape (nx1, nx2, 2)
@@ -80,9 +99,9 @@ class GroupFairness():
         pairwise_distance = tf.reshape(pairwise_distance, (pairwise_distance.shape[0], pairwise_distance.shape[1], 1))
         L = u_expanded + v_expanded - pairwise_distance
         if reguralizer == 'entropy':
-            penalty = -epsilon * tf.exp((1/epsilon) * L)
+            penalty = -self.epsilon * tf.exp((1/self.epsilon) * L)
         elif reguralizer == 'L2':
-            penalty = -(1/(4*epsilon))*(tf.nn.relu(L)**2)
+            penalty = -(1/(4*self.epsilon))*(tf.nn.relu(L)**2)
         else:
             raise TypeError('Wrong entry in regularizer. Options: entropy and L2')
         distance = tf.reduce_mean(u) + tf.reduce_mean(v) + tf.reduce_mean(penalty)
@@ -93,17 +112,94 @@ class GroupFairness():
         current_time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
         expt_id = np.random.randint(1000000)
         parameter = f'-expt_id-{expt_id}lr-{self.learning_rate}-w_reg-{self.epsilon}-l2_reg-{self.l2_regularizer}'
-        train_log_dir = 'logs/' + current_time + parameter + '/train'
-        test_log_dir = 'logs/' + current_time + parameter + '/test'
+        train_log_dir = 'logs/time-' + current_time + parameter + '/train'
+        test_log_dir = 'logs/time-' + current_time + parameter + '/test'
         self.train_summary_writer = tf.summary.create_file_writer(train_log_dir)
         self.test_summary_writer = tf.summary.create_file_writer(test_log_dir)
 
     def train_step(self, data, step):
         x, y, group = data
-        with tf.GradientTape() as g:
+        with tf.GradientTape(persistent = True) as g:
             logits = self.classifier(x)
             entropy = utils.entropy_loss(logits, y)
+            accuracy = utils.accuracy(logits, y)
+
+            # Entropy part of loss
+            loss = tf.identity(entropy)
+
             with self.train_summary_writer.as_default():
                 tf.summary.scalar('entropy-loss', entropy, step = step)
+                tf.summary.scalar('accuracy', accuracy, step = step)
+
+            
+
+
+            marginal_class_probabilities = tf.reduce_mean(y, axis = 0) # Calculates [P(Y = 0), P(Y = 1)]
+            conditional_class_probabilities = utils.logit_to_probability(logits) # Calculates [P(Y = 0 | X = x), P(Y = 1 | X = x)]
+
+            # Wasserstein distance part of loss
+            for label in [0, 1]:
+                conditional_class_probabilities_label = conditional_class_probabilities[y[:, 1] == label]
+                group_label = group[y[:, 1] == label]
+                probabilities_group0 = conditional_class_probabilities_label[group_label == 0]
+                probabilities_group1 = conditional_class_probabilities_label[group_label == 1]
+                wd = self.wasserstein_distance(probabilities_group0, \
+                    probabilities_group1, potential1=self.potentials[label][0], \
+                        potential2=self.potentials[label][1])
+                with self.train_summary_writer.as_default():
+                    tf.summary.scalar(f'wasserstein-distance for y = {label}', wd, step=step)
+                loss = loss + self.wasserstein_regularizer * wd * marginal_class_probabilities[label]
+
+            # l2 norm part of loss
+            if self.l2_regularizer > 0:
+                norm = tf.cast(0, dtype = tf.dtypes.float32)
+                trainable_vars_classifier = self.classifier.trainable_variables
+                for v in trainable_vars_classifier:
+                    norm = norm + tf.norm(v)
+                for potential_list in self.potentials:
+                    for potential in potential_list:
+                        trainable_vars_dual_potential = potential.trainable_variables
+                        for v in trainable_vars_dual_potential:
+                            norm = norm + tf.norm(v)
+                loss = loss + self.l2_regularizer * norm
+
+        # updating classifier
+
+        trainable_vars_classifier = self.classifier.trainable_variables
+        gradient = g.gradient(loss, trainable_vars_classifier)
+        clipped_grad = [tf.clip_by_norm(grad, self.clip_grad) for grad in gradient]
+        self.classifier_optimizer.apply_gradients(zip(clipped_grad, trainable_vars_classifier))
+
+        # updating dual potentials 
+
+        for potential_list in self.potentials:
+            for potential in potential_list:
+                trainable_vars_dual_potential = potential.trainable_variables
+                gradient = g.gradient(loss, trainable_vars_dual_potential)
+                clipped_grad = [tf.clip_by_norm(grad, self.clip_grad) for grad in gradient]
+                self.wasserstein_optimizer.apply_gradients(zip(clipped_grad, trainable_vars_dual_potential))
+        del g
+
+
+    def test_step(self, data, step):
+
+        x, y, _ = data
+        logits = self.classifier(x)
+        entropy = utils.entropy_loss(logits, y)
+        accuracy = utils.accuracy(logits, y)
+        with self.test_summary_writer.as_default():
+            tf.summary.scalar('entropy-loss', entropy, step=step)
+            tf.summary.scalar('accuracy', accuracy, step = step)
+    
+    def fit(self, data_train, data_test):
+        self.create_batch_data(data_train, data_test)
+        self.create_tensorboard()
+        for step, (batch_train_data, batch_test_data) in enumerate(zip(self.batch_train_data, self.batch_test_data)):
+            self.train_step(batch_train_data, step)
+            self.test_step(batch_test_data, step)
+            if step % 200 == 0:
+                print(f'Done step {step}\n')
+
+            
         
             
