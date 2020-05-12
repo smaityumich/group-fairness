@@ -23,7 +23,7 @@ class NNGraph(keras.Model):
     """
 
     # Set layers
-    def __init__(self, architecture = [10, 20, 2], activation = tf.nn.relu, input_shape = (40,)):
+    def __init__(self, architecture = [10, 20, 2], activation = tf.nn.relu, input_shape = (40,), name = None):
         super(NNGraph, self).__init__()
         self.Layers = []
         if len(architecture) == 1:
@@ -51,7 +51,7 @@ class NNGraph(keras.Model):
 
         
       
-        self.model = keras.models.Sequential(self.layers)
+        self.model = keras.models.Sequential(self.layers, name = name)
 
     # Set forward pass
     def call(self, x, probability = False):
