@@ -8,7 +8,7 @@ import utils
 
 class GroupFairness():
 
-    def __init__(self, batch_size = 500, epoch = 5000, learning_rate = 1e-4, wasserstein_lr = 1e-5, \
+    def __init__(self, batch_size = 500, epoch = 1000, learning_rate = 1e-4, wasserstein_lr = 1e-5, \
                         l2_regularizer = 0, wasserstein_regularizer = 1e-2, epsilon = 1e0, clip_grad = 40, seed = 1):
 
         '''
@@ -111,16 +111,21 @@ class GroupFairness():
     def create_tensorboard(self):
         current_time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
         expt_id = np.random.randint(1000000)
-        parameter = f'-expt_id-{expt_id}lr-{self.learning_rate}-w_reg-{self.epsilon}-l2_reg-{self.l2_regularizer}'
-        train_log_dir = 'logs/time-' + current_time + parameter + '/train'
-        test_log_dir = 'logs/time-' + current_time + parameter + '/test'
-        self.train_summary_writer = tf.summary.create_file_writer(train_log_dir)
-        self.test_summary_writer = tf.summary.create_file_writer(test_log_dir)
+        parameter = f'-expt_id-{expt_id}-lr-{self.learning_rate}-w_reg-{self.epsilon}-l2_reg-{self.l2_regularizer}'
+        self.train_log_dir = 'logs/time-' + current_time + parameter + '/train'
+        self.test_log_dir = 'logs/time-' + current_time + parameter + '/test'
+        self.train_summary_writer = tf.summary.create_file_writer(self.train_log_dir)
+        self.test_summary_writer = tf.summary.create_file_writer(self.test_log_dir)
 
     def train_step(self, data, step):
+        
+        #tf.summary.trace_on(graph = True, profiler = True)
         x, y, group = data
         with tf.GradientTape(persistent = True) as g:
             logits = self.classifier(x)
+            #with self.train_summary_writer.as_default():
+            #    tf.summary.trace_export(name = 'classifier-trace', step = step, profiler_outdir = self.train_log_dir)
+        
             entropy = utils.entropy_loss(logits, y)
             accuracy = utils.accuracy(logits, y)
 
@@ -162,6 +167,8 @@ class GroupFairness():
                         for v in trainable_vars_dual_potential:
                             norm = norm + tf.norm(v)
                 loss = loss + self.l2_regularizer * norm
+
+        
 
         # updating classifier
 
