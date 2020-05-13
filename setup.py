@@ -67,7 +67,7 @@ class GroupFairness():
         self.batch_test_data = batch.take(self.epoch)
 
     def wasserstein_distance(self, x1, x2, potential1 = None, potential2 = None, \
-         reguralizer = 'entropy'):
+         reguralizer = 'entropy', update = False):
         """
         Given dual potential functions calculates the regularized Wasserstein distance
 
@@ -104,18 +104,20 @@ class GroupFairness():
             penalty = -(1/(4*self.epsilon))*(tf.nn.relu(L)**2)
         else:
             raise TypeError('Wrong entry in regularizer. Options: entropy and L2')
-        distance = tf.reduce_mean(u) + tf.reduce_mean(v) + tf.reduce_mean(penalty)
-        return distance
+        distance = tf.reduce_mean(u) + tf.reduce_mean(v) 
+        regularized_distance = distance + tf.reduce_mean(penalty)
+        return distance, regularized_distance
 
 
     def create_tensorboard(self):
         current_time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
         expt_id = np.random.randint(1000000)
-        parameter = f'-expt_id-{expt_id}-lr-{self.learning_rate}-w_reg-{self.epsilon}-l2_reg-{self.l2_regularizer}'
-        self.train_log_dir = 'logs/time-' + current_time + parameter + '/train'
-        self.test_log_dir = 'logs/time-' + current_time + parameter + '/test'
+        parameter = f'time-{current_time}-expt_id-{expt_id}-lr-{self.learning_rate}-w_reg-{self.epsilon}-l2_reg-{self.l2_regularizer}'
+        self.train_log_dir = 'logs/' + parameter + '/train'
+        self.test_log_dir = 'logs/' + parameter + '/test'
         self.train_summary_writer = tf.summary.create_file_writer(self.train_log_dir)
         self.test_summary_writer = tf.summary.create_file_writer(self.test_log_dir)
+        print('parameter:' + parameter)
 
     def train_step(self, data, step):
         
@@ -148,12 +150,12 @@ class GroupFairness():
                 group_label = group[y[:, 1] == label]
                 probabilities_group0 = conditional_class_probabilities_label[group_label == 0]
                 probabilities_group1 = conditional_class_probabilities_label[group_label == 1]
-                wd = self.wasserstein_distance(probabilities_group0, \
+                wd, wd_reg = self.wasserstein_distance(probabilities_group0, \
                     probabilities_group1, potential1=self.potentials[label][0], \
                         potential2=self.potentials[label][1])
                 with self.train_summary_writer.as_default():
                     tf.summary.scalar(f'wasserstein-distance for y = {label}', wd, step=step)
-                loss = loss + self.wasserstein_regularizer * wd * marginal_class_probabilities[label]
+                loss = loss + self.wasserstein_regularizer * wd_reg * marginal_class_probabilities[label]
 
             # l2 norm part of loss
             if self.l2_regularizer > 0:
@@ -161,11 +163,7 @@ class GroupFairness():
                 trainable_vars_classifier = self.classifier.trainable_variables
                 for v in trainable_vars_classifier:
                     norm = norm + tf.norm(v)
-                for potential_list in self.potentials:
-                    for potential in potential_list:
-                        trainable_vars_dual_potential = potential.trainable_variables
-                        for v in trainable_vars_dual_potential:
-                            norm = norm + tf.norm(v)
+                
                 loss = loss + self.l2_regularizer * norm
 
         
@@ -183,20 +181,66 @@ class GroupFairness():
             for potential in potential_list:
                 trainable_vars_dual_potential = potential.trainable_variables
                 gradient = g.gradient(loss, trainable_vars_dual_potential)
-                clipped_grad = [tf.clip_by_norm(grad, self.clip_grad) for grad in gradient]
+                clipped_grad = [-tf.clip_by_norm(grad, self.clip_grad) for grad in gradient]
                 self.wasserstein_optimizer.apply_gradients(zip(clipped_grad, trainable_vars_dual_potential))
         del g
 
 
+
     def test_step(self, data, step):
 
-        x, y, _ = data
+        x, y, group = data
         logits = self.classifier(x)
         entropy = utils.entropy_loss(logits, y)
         accuracy = utils.accuracy(logits, y)
         with self.test_summary_writer.as_default():
             tf.summary.scalar('entropy-loss', entropy, step=step)
             tf.summary.scalar('accuracy', accuracy, step = step)
+
+        conditional_class_probabilities = utils.logit_to_probability(logits) 
+
+        # Wasserstein distance 
+        for label in [0, 1]:
+            conditional_class_probabilities_label = conditional_class_probabilities[y[:, 1] == label]
+            group_label = group[y[:, 1] == label]
+            probabilities_group0 = conditional_class_probabilities_label[group_label == 0]
+            probabilities_group1 = conditional_class_probabilities_label[group_label == 1]
+            wd, _ = self.wasserstein_distance(probabilities_group0, \
+                    probabilities_group1, potential1=self.potentials[label][0], \
+                        potential2=self.potentials[label][1])
+            with self.test_summary_writer.as_default():
+                tf.summary.scalar(f'wasserstein-distance for y = {label}', wd, step=step)
+
+    def metrics(self, data, classifier = None):
+
+        x, y, group = data
+        if classifier == None:
+            classifier = self.classifier
+        logits = classifier(x)
+        accuracy = utils.accuracy(logits, y).numpy()
+        predictions = tf.cast(tf.argmax(logits, axis = 1), dtype = tf.int32)
+        y = tf.cast(y[:, 1], dtype = tf.int32)
+
+        rms = 0
+        balenced_accuracy = 0
+        
+        for label in [0, 1]:
+            predictions_label = predictions[y == label]
+            group_label = group[y == label]
+            predictions_label0 = predictions_label[group_label == 0]
+            predictions_label1 = predictions_label[group_label == 1]
+            predictions_label0, predictions_label1 = tf.cast(predictions_label0, dtype = tf.float32),\
+                 tf.cast(predictions_label1, dtype = tf.float32)
+            diff = tf.reduce_mean(predictions_label0) - tf.reduce_mean(predictions_label1)
+            rms = rms + (diff.numpy())**2
+            predictions_label = tf.cast(predictions_label, dtype = tf.float32)
+            if label == 0:
+                balenced_accuracy = balenced_accuracy + 1 - tf.reduce_mean(predictions_label).numpy()
+            else:
+                balenced_accuracy = balenced_accuracy + tf.reduce_mean(predictions_label).numpy()
+
+        return accuracy, (rms/2)**(0.5), balenced_accuracy/2
+
     
     def fit(self, data_train, data_test):
         self.create_batch_data(data_train, data_test)
@@ -204,8 +248,19 @@ class GroupFairness():
         for step, (batch_train_data, batch_test_data) in enumerate(zip(self.batch_train_data, self.batch_test_data)):
             self.train_step(batch_train_data, step)
             self.test_step(batch_test_data, step)
-            if step % 200 == 0:
-                print(f'Done step {step}\n')
+            if step % 250 == 0:
+                accuracy, rms, balenced_accuracy = self.metrics(data_test)
+                print(f'Test accuracy for step {step}: {accuracy}\n')
+                print(f'Test GAP RMS for step {step}: {rms}\n')
+                print(f'Test balenced accuracy for step {step}: {balenced_accuracy}\n')
+
+        accuracy, rms, balenced_accuracy = self.metrics(data_test)
+        print(f'Final test accuracy: {accuracy}\n')
+        print(f'Final test GAP RMS: {rms}\n')
+        print(f'Final test balenced accuracy: {balenced_accuracy}\n\n')
+        return rms
+
+
 
             
         
