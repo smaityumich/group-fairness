@@ -14,3 +14,8 @@ def logit_to_probability(logits):
 def accuracy(logits, labels):
     predictions = tf.argmax(logits, axis = 1)
     return tf.reduce_mean(tf.cast(tf.equal(predictions, tf.cast(labels[:,1], dtype = tf.int64)), dtype = tf.float32))
+
+
+def label_specific_entropy_loss(logits, label):
+    probabilities, _ = tf.linalg.normalize(tf.nn.softmax(logits), ord = 1, axis = 1)
+    return tf.reduce_mean(-tf.math.log(probabilities[:, label]))

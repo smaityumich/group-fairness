@@ -127,8 +127,10 @@ class GroupFairness():
             logits = self.classifier(x)
             #with self.train_summary_writer.as_default():
             #    tf.summary.trace_export(name = 'classifier-trace', step = step, profiler_outdir = self.train_log_dir)
-        
-            entropy = utils.entropy_loss(logits, y)
+            #entropy = utils.entropy_loss(logits, y) # for non-reweighted loss
+            entropy = utils.label_specific_entropy_loss(logits[y[:, 1]==0], 0)\
+                 + utils.label_specific_entropy_loss(logits[y[:, 1] == 1], 1)  # for reweighted loss
+            
             accuracy = utils.accuracy(logits, y)
 
             # Entropy part of loss
@@ -191,8 +193,13 @@ class GroupFairness():
 
         x, y, group = data
         logits = self.classifier(x)
-        entropy = utils.entropy_loss(logits, y)
-        accuracy = utils.accuracy(logits, y)
+        #entropy = utils.entropy_loss(logits, y) # for non-reweighted loss
+        
+        entropy = utils.label_specific_entropy_loss(logits[y[:, 1]==0], 0)\
+                 + utils.label_specific_entropy_loss(logits[y[:, 1] == 1], 1) # for reweighted loss
+
+        accuracy = utils.accuracy(logits, y) 
+
         with self.test_summary_writer.as_default():
             tf.summary.scalar('entropy-loss', entropy, step=step)
             tf.summary.scalar('accuracy', accuracy, step = step)
@@ -252,7 +259,7 @@ class GroupFairness():
                 accuracy, rms, balenced_accuracy = self.metrics(data_test)
                 print(f'Test accuracy for step {step}: {accuracy}\n')
                 print(f'Test GAP RMS for step {step}: {rms}\n')
-                print(f'Test balenced accuracy for step {step}: {balenced_accuracy}\n')
+                print(f'Test balenced accuracy for step {step}: {balenced_accuracy}\n\n')
 
         accuracy, rms, balenced_accuracy = self.metrics(data_test)
         print(f'Final test accuracy: {accuracy}\n')

@@ -28,15 +28,16 @@ data_train = x_gender_train, y_train, y_gender_train
 data_test = x_gender_test, y_test, y_gender_test
 
 # Experiment
-batch_size = 250
+batch_size = 500
 epoch = 6000
-l2_regularizer = 0
+l2_regularizer = 0.1
 lr = 5e-4
-wlr = 5e-3
+wlr = 5e-4
+w_reg = 10
 
 
 
 experiment = setup.GroupFairness(batch_size=batch_size, epoch=epoch, l2_regularizer= l2_regularizer,\
-     learning_rate=lr, wasserstein_lr=wlr)
+     learning_rate=lr, wasserstein_lr=wlr, wasserstein_regularizer=w_reg)
 experiment.set_graph()
 experiment.fit(data_train, data_test)
