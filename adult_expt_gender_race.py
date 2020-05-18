@@ -2,6 +2,7 @@ import numpy as np
 import tensorflow as tf
 from adult_modified import preprocess_adult_data
 import setup2
+import sys
 
 # Adult data processing
 seed = 1
@@ -33,17 +34,19 @@ groups = [list(x) for x in groups]
 groups = tf.cast(groups, tf.int32)
 
 # Experiment
-batch_size = 1000
+batch_size = 150
 epoch = 6000
 l2_regularizer = 0
 lr = 1e-4
-wlr = 2e-5
-w_reg = 50
+wlr = 1e-4
+w_reg = float(sys.argv[1])
+epsilon = 0.05
+start_training = 250
 
-
+seed = np.random.randint(10000)
 
 experiment = setup2.GroupFairness(batch_size=batch_size, epoch=epoch, l2_regularizer= l2_regularizer,\
-     learning_rate=lr, wasserstein_lr=wlr, wasserstein_regularizer=w_reg)
+     learning_rate=lr, wasserstein_lr=wlr, wasserstein_regularizer=w_reg, seed=seed, epsilon=epsilon, start_training=start_training)
 experiment.set_graph(classifier_input_shape=(39,), n_groups=4, \
-    classifier_architecture=[10, 10, 2], potential_architecture=[5,1])
+    classifier_architecture=[50, 50, 10, 2], potential_architecture=[50, 10, 1])
 experiment.fit(data_train, data_test, groups, group_names=['gender', 'race'])
