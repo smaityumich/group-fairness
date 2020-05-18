@@ -11,8 +11,8 @@ class GroupFairness():
     def __init__(self, batch_size = 500, epoch = 1000, learning_rate = 1e-4, wasserstein_lr = 1e-5, \
                         adversarial_learning_rate = 1e-3, adversarial_epoch = 20, \
                         l2_regularizer = 0, wasserstein_regularizer = 1e-2, \
-                            epsilon = 1e1, clip_grad = 40, seed = 1,\
-                                 wasserstein_regularization_type = 'L2'):
+                            epsilon = 1e0, clip_grad = 40, seed = 1,\
+                                 wasserstein_regularization_type = 'L2', start_training = 500):
 
         '''
         Class for enforcing group fairness in classifier
@@ -44,6 +44,7 @@ class GroupFairness():
         self.wasserstein_optimizer = tf.optimizers.Adam(wasserstein_lr)
         self.wasserstein_regularization_type = wasserstein_regularization_type
         self.seed = seed
+        self.start_training = start_training
         tf.random.set_seed(self.seed)
 
     def set_graph(self, classifier_architecture = [10, 20, 2], classifier_input_shape = (40, ),\
@@ -85,9 +86,47 @@ class GroupFairness():
         batch = batch.repeat().shuffle(5000).batch(self.batch_size).prefetch(1)
         self.batch_test_data = batch.take(self.epoch)
 
+    def create_label_wise_batch_data(self, data_train, data_test):
+
+        # Tensor slices for train data
+        # creates label wise tensor slice
+        x, y, group = data_train
+
+        # Label 0
+        index = y[:, 1] == 0
+        data_train0 = x[index], y[index], group[index]
+        batch = tf.data.Dataset.from_tensor_slices(data_train0)
+        batch = batch.repeat().shuffle(5000).batch(self.batch_size).prefetch(1)
+        self.batch_train_data0 = batch.take(self.epoch)
+
+        # Label 1
+        index = y[:, 1] == 1
+        data_train1 = x[index], y[index], group[index]
+        batch = tf.data.Dataset.from_tensor_slices(data_train1)
+        batch = batch.repeat().shuffle(5000).batch(self.batch_size).prefetch(1)
+        self.batch_train_data1 = batch.take(self.epoch)
+
+        # Label wise tensor slices for test data
+        x, y, group = data_test
+
+        # Label 0
+        # Label 0
+        index = y[:, 1] == 0
+        data_test0 = x[index], y[index], group[index]
+        batch = tf.data.Dataset.from_tensor_slices(data_test0)
+        batch = batch.repeat().shuffle(5000).batch(self.batch_size).prefetch(1)
+        self.batch_test_data0 = batch.take(self.epoch)
+
+        # Label 1
+        index = y[:, 1] == 1
+        data_test1 = x[index], y[index], group[index]
+        batch = tf.data.Dataset.from_tensor_slices(data_test1)
+        batch = batch.repeat().shuffle(5000).batch(self.batch_size).prefetch(1)
+        self.batch_test_data1 = batch.take(self.epoch)
+
 
     def wasserstein_distance(self, x1, x2, potential1 = None, potential2 = None, \
-         reguralizer = 'entropy', regularize = True):
+         reguralizer = 'entropy', update = True):
         """
         Given dual potential functions calculates the regularized Wasserstein distance
 
@@ -105,19 +144,25 @@ class GroupFairness():
         reference:
         [1] Seguy et. al.: 'Large-scale optimal transport and mapping estimation'
         """
-        if False:#len(x1.shape) < 2 or x1.shape[0] < 2:
-            return tf.cast(0, dtype = tf.float32), tf.cast(0, dtype = tf.float32)
-        else:
-            if potential1 == None:
-                potential1 = self.potentials[0][0][0]
-            if potential2 == None:
-                potential2 = self.potentials[0][0][1]
+        
+        if potential1 == None:
+            potential1 = self.potentials[0][0][0]
+        if potential2 == None:
+            potential2 = self.potentials[0][0][1]
+        
+        if not update:
             u = potential1(x1)
             v = potential2(x2)
-            distance = tf.reduce_mean(u) + tf.reduce_mean(v) 
-            if not regularize:
-                regularized_distance = tf.cast(0, dtype = tf.float32)
-            else:
+            distance = tf.cast(0, dtype = tf.float32)
+            distance += tf.reduce_mean(u) + tf.reduce_mean(v) 
+            if tf.math.is_nan(distance):
+                distance = tf.cast(0, dtype = tf.float32)
+            return distance
+        else:
+            with tf.GradientTape(persistent = True) as tape:
+                u = potential1(x1)
+                v = potential2(x2)
+                distance = tf.reduce_mean(u) + tf.reduce_mean(v) 
                 x1_expanded = tf.tile(tf.expand_dims(x1, axis = 1), [1, x2.shape[0], 1]) # shape (nx1, nx2, 2)
                 x2_expanded = tf.tile(tf.expand_dims(x2, axis = 0), [x1.shape[0], 1, 1]) # shape (nx1, nx2, 2)
                 pairwise_distance = 0.5 * tf.reduce_sum((x1_expanded - x2_expanded)**2, axis = 2) # shape (nx1, nx2)
@@ -132,29 +177,46 @@ class GroupFairness():
                 else:
                     raise TypeError('Wrong entry in regularizer. Options: entropy and L2')
                 regularized_distance = distance + tf.reduce_mean(penalty)
-            return distance, regularized_distance
+
+            variables_u = potential1.trainable_variables
+            gradient = tape.gradient(regularized_distance, variables_u)
+            clipped_grad = [-tf.clip_by_norm(grad, self.clip_grad) for grad in gradient]
+            self.wasserstein_optimizer.apply_gradients(zip(clipped_grad, variables_u))
+
+            variables_v = potential2.trainable_variables
+            gradient = tape.gradient(regularized_distance, variables_v)
+            clipped_grad = [-tf.clip_by_norm(grad, self.clip_grad) for grad in gradient]
+            self.wasserstein_optimizer.apply_gradients(zip(clipped_grad, variables_v))
+
+            del tape
+
+            if tf.math.is_nan(distance):
+                distance = tf.cast(0, dtype = tf.float32)
+                #print(f'Shape x1: '+str(x1.shape[0])+', x2: '+str(x2.shape[0]))
+            
+            return distance
 
 
-    def marginal_OT(self, grouped_data, marginal_data, group_potentials, regularize = True):
+    def marginal_OT(self, grouped_data, marginal_data, group_potentials, update = True):
 
         
         # Calculating weights
         counts = tf.cast([data.shape[0] for data in grouped_data], dtype = tf.float32)
         weights = counts/tf.reduce_sum(counts)
 
-        OT_dist, reg_OT_dist = tf.cast(0, dtype = tf.float32), tf.cast(0, tf.float32)
+        #OT_dist, reg_OT_dist = tf.cast(0, dtype = tf.float32), tf.cast(0, tf.float32)
+        OT_dist = tf.cast(0, dtype = tf.float32)
         for x, potentials, weight in zip(grouped_data, group_potentials, weights):
-            if True: #len(x.shape) == 2 and x.shape[0] > 1:
-                wd, rwd = self.wasserstein_distance(x, marginal_data,\
+            if True: #x.shape[0] != 0:
+                wd = self.wasserstein_distance(x, marginal_data,\
              potential1=potentials[0], potential2=potentials[1],\
-                  reguralizer=self.wasserstein_regularization_type, regularize=regularize)
+                  reguralizer=self.wasserstein_regularization_type, update = update)
 
                 OT_dist += wd * weight
-                reg_OT_dist += rwd * weight
             else:
                 continue
 
-        return OT_dist, reg_OT_dist
+        return OT_dist
 
 
 
@@ -162,7 +224,7 @@ class GroupFairness():
     def create_tensorboard(self):
         current_time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
         expt_id = np.random.randint(1000000)
-        parameter = f'time-{current_time}-expt_id-{expt_id}-lr-{self.learning_rate}-w_reg-{self.epsilon}-l2_reg-{self.l2_regularizer}'
+        parameter = f'seed-{self.seed}-time-{current_time}-expt_id-{expt_id}-lr-{self.learning_rate}-w_reg-{self.epsilon}-l2_reg-{self.l2_regularizer}'
         self.train_log_dir = 'logs/' + parameter + '/train'
         self.test_log_dir = 'logs/' + parameter + '/test'
         self.train_summary_writer = tf.summary.create_file_writer(self.train_log_dir)
@@ -170,6 +232,21 @@ class GroupFairness():
         print('parameter:' + parameter)
 
 
+    def update_potentials_only(self, data, groups, step):
+        x, y, group = data
+        logits = self.classifier(x)
+        conditional_class_probabilities = utils.logit_to_probability(logits) # Calculates [P(Y = 0 | X = x), P(Y = 1 | X = x)]
+        conditional_class_probabilities = tf.reshape(conditional_class_probabilities[:, 1], shape = [-1,1])
+
+        for label in [0, 1]:
+            conditional_class_probabilities_given_label = conditional_class_probabilities[y[:, 1] == label]
+            group_given_label = group[y[:, 1] == label]
+            grouped_probabilities = [conditional_class_probabilities_given_label[tf.reduce_all(group_given_label\
+                     == group_index, axis = 1)] for group_index in groups]
+            OT = self.marginal_OT(grouped_probabilities,\
+                     conditional_class_probabilities_given_label, self.potentials[label])
+            with self.train_summary_writer.as_default():
+                tf.summary.scalar(f'Marginal OT measure for y = {label}', OT, step=step)
 
 
     def train_step(self, data, groups, step):
@@ -177,9 +254,9 @@ class GroupFairness():
         x, y, group = data
         with tf.GradientTape(persistent = True) as g:
             logits = self.classifier(x)
-            #entropy = utils.entropy_loss(logits, y) # for non-reweighted loss
-            entropy = utils.label_specific_entropy_loss(logits[y[:, 1]==0], 0)\
-                 + utils.label_specific_entropy_loss(logits[y[:, 1] == 1], 1)  # for reweighted loss
+            entropy = utils.entropy_loss(logits, y) # for non-reweighted loss
+            #entropy = utils.label_specific_entropy_loss(logits[y[:, 1]==0], 0)\
+            #     + utils.label_specific_entropy_loss(logits[y[:, 1] == 1], 1)  # for reweighted loss
             
             accuracy = utils.accuracy(logits, y)
 
@@ -203,11 +280,14 @@ class GroupFairness():
                 group_given_label = group[y[:, 1] == label]
                 grouped_probabilities = [conditional_class_probabilities_given_label[tf.reduce_all(group_given_label\
                      == group_index, axis = 1)] for group_index in groups]
-                OT, reg_OT = self.marginal_OT(grouped_probabilities,\
+                for _ in range(0):
+                    _ = self.marginal_OT(grouped_probabilities,\
+                     conditional_class_probabilities_given_label, self.potentials[label])
+                OT = self.marginal_OT(grouped_probabilities,\
                      conditional_class_probabilities_given_label, self.potentials[label])
                 with self.train_summary_writer.as_default():
                     tf.summary.scalar(f'Marginal OT measure for y = {label}', OT, step=step)
-                loss = loss + self.wasserstein_regularizer * reg_OT * marginal_class_probabilities[label]
+                loss = loss + self.wasserstein_regularizer * OT * marginal_class_probabilities[label]
 
             # l2 norm part of loss
             if self.l2_regularizer > 0:
@@ -229,13 +309,13 @@ class GroupFairness():
 
         # updating dual potentials 
 
-        for potential_for_label in self.potentials:
-            for potential_group in potential_for_label:
-                for potential in potential_group:
-                    trainable_vars_dual_potential = potential.trainable_variables
-                    gradient = g.gradient(loss, trainable_vars_dual_potential)
-                    clipped_grad = [-tf.clip_by_norm(grad, self.clip_grad) for grad in gradient]
-                    self.wasserstein_optimizer.apply_gradients(zip(clipped_grad, trainable_vars_dual_potential))
+        #for potential_for_label in self.potentials:
+        #    for potential_group in potential_for_label:
+        #        for potential in potential_group:
+        #            trainable_vars_dual_potential = potential.trainable_variables
+        #            gradient = g.gradient(loss, trainable_vars_dual_potential)
+        #            clipped_grad = [-tf.clip_by_norm(grad, self.clip_grad) for grad in gradient]
+        #            self.wasserstein_optimizer.apply_gradients(zip(clipped_grad, trainable_vars_dual_potential))
         del g
 
 
@@ -244,10 +324,10 @@ class GroupFairness():
 
         x, y, group = data
         logits = self.classifier(x)
-        #entropy = utils.entropy_loss(logits, y) # for non-reweighted loss
+        entropy = utils.entropy_loss(logits, y) # for non-reweighted loss
         
-        entropy = utils.label_specific_entropy_loss(logits[y[:, 1]==0], 0)\
-                 + utils.label_specific_entropy_loss(logits[y[:, 1] == 1], 1) # for reweighted loss
+        #entropy = utils.label_specific_entropy_loss(logits[y[:, 1]==0], 0)\
+        #         + utils.label_specific_entropy_loss(logits[y[:, 1] == 1], 1) # for reweighted loss
 
         accuracy = utils.accuracy(logits, y) 
 
@@ -264,8 +344,8 @@ class GroupFairness():
             group_given_label = group[y[:, 1] == label]
             grouped_probabilities = [conditional_class_probabilities_given_label[tf.reduce_all(group_given_label\
                  == group_index, axis = 1)] for group_index in groups]
-            OT, _ = self.marginal_OT(grouped_probabilities, conditional_class_probabilities_given_label,\
-                 self.potentials[label], regularize=False)
+            OT = self.marginal_OT(grouped_probabilities, conditional_class_probabilities_given_label,\
+                 self.potentials[label], update=False)
             with self.test_summary_writer.as_default():
                 tf.summary.scalar(f'Marginal OT measure for y = {label}', OT, step=step)
 
@@ -346,18 +426,34 @@ class GroupFairness():
         n_feature = groups.shape[1]
         if group_names == None:
             group_names = range(n_feature)
-        self.create_batch_data(data_train, data_test)
+        self.create_label_wise_batch_data(data_train, data_test)
         self.create_tensorboard()
-        for step, (batch_train_data, batch_test_data) in enumerate(zip(self.batch_train_data, self.batch_test_data)):
-            self.train_step(batch_train_data, groups, step)
-            self.test_step(batch_test_data, groups, step)
-            if step % 250 == 0:
-                _ = self.metrics(data_train, step=step)
-                accuracy, bal_accuracy, gap_rms = self.metrics(data_test, False, step)
-                print(f'Test accuracy for step {step}: {accuracy}\n')
-                for i, name in enumerate(group_names):
-                    print(f'Test GAP RMS for {name} and step {step}: {gap_rms[i]}\n')
-                print(f'Test balanced accuracy for step {step}: {bal_accuracy}\n\n')
+        #for step, (batch_train_data, batch_test_data) in enumerate(zip(self.batch_train_data, self.batch_test_data)):
+        for step, data in enumerate(zip(self.batch_train_data0, self.batch_train_data1, self.batch_test_data0, self.batch_test_data1)):
+            batch_train_data0, batch_train_data1, batch_test_data0, batch_test_data1 = data
+            
+            x0, y0, group0 = batch_train_data0
+            x1, y1, group1 = batch_train_data1
+            batch_train_data = tf.concat([x0, x1], 0), tf.concat([y0, y1], 0), tf.concat([group0, group1], 0)
+
+            x0, y0, group0 = batch_test_data0
+            x1, y1, group1 = batch_test_data1
+            batch_test_data = tf.concat([x0, x1], 0), tf.concat([y0, y1], 0), tf.concat([group0, group1], 0)
+
+            if step < self.start_training:
+                self.update_potentials_only(batch_train_data, groups, step)
+
+            else:
+
+                self.train_step(batch_train_data, groups, step)
+                self.test_step(batch_test_data, groups, step)
+                if step % 250 == 0:
+                    _ = self.metrics(data_train, step=step)
+                    accuracy, bal_accuracy, gap_rms = self.metrics(data_test, False, step)
+                    #print(f'Test accuracy for step {step}: {accuracy}\n')
+                    #for i, name in enumerate(group_names):
+                    #    print(f'Test GAP RMS for {name} and step {step}: {gap_rms[i]}\n')
+                    #print(f'Test balanced accuracy for step {step}: {bal_accuracy}\n\n')
 
         accuracy, bal_accuracy, gap_rms = self.metrics(data_test, False, step = self.epoch)
         print(f'Final test accuracy: {accuracy}\n')
