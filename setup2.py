@@ -450,10 +450,10 @@ class GroupFairness():
                 if step % 250 == 0:
                     _ = self.metrics(data_train, step=step)
                     accuracy, bal_accuracy, gap_rms = self.metrics(data_test, False, step)
-                    #print(f'Test accuracy for step {step}: {accuracy}\n')
-                    #for i, name in enumerate(group_names):
-                    #    print(f'Test GAP RMS for {name} and step {step}: {gap_rms[i]}\n')
-                    #print(f'Test balanced accuracy for step {step}: {bal_accuracy}\n\n')
+                    print(f'Test accuracy for step {step}: {accuracy}\n')
+                    for i, name in enumerate(group_names):
+                        print(f'Test GAP RMS for {name} and step {step}: {gap_rms[i]}\n')
+                    print(f'Test balanced accuracy for step {step}: {bal_accuracy}\n\n')
 
         accuracy, bal_accuracy, gap_rms = self.metrics(data_test, False, step = self.epoch)
         print(f'Final test accuracy: {accuracy}\n')
