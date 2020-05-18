@@ -28,7 +28,7 @@ for reg_wasserstein in reg_w:
         fh.writelines("#SBATCH --mail-type=NONE\n")
         fh.writelines("#SBATCH --mail-user=smaity@umich.edu\n")
         fh.writelines('#SBATCH --partition=standard\n')
-        fh.writelines(f"python3 adult_expt_gender_race.py {reg_wasserstein} >> adult1.out")
+        fh.writelines(f"python3 adult_expt_gender_race.py {reg_wasserstein} >> summary/adult1.out")
 
 
     os.system("sbatch %s" %job_file)
