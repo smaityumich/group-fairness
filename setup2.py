@@ -224,7 +224,7 @@ class GroupFairness():
     def create_tensorboard(self):
         current_time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
         expt_id = np.random.randint(1000000)
-        parameter = f'seed-{self.seed}-time-{current_time}-expt_id-{expt_id}-lr-{self.learning_rate}-w_reg-{self.epsilon}-l2_reg-{self.l2_regularizer}'
+        parameter = f'seed-{self.seed}-time-{current_time}-expt_id-{expt_id}-lr-{self.learning_rate}-epsilon-{self.epsilon}-w_reg-{self.wasserstein_regularizer}-l2_reg-{self.l2_regularizer}'
         self.train_log_dir = 'logs/' + parameter + '/train'
         self.test_log_dir = 'logs/' + parameter + '/test'
         self.train_summary_writer = tf.summary.create_file_writer(self.train_log_dir)
