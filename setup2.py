@@ -254,9 +254,9 @@ class GroupFairness():
         x, y, group = data
         with tf.GradientTape(persistent = True) as g:
             logits = self.classifier(x)
-            entropy = utils.entropy_loss(logits, y) # for non-reweighted loss
-            #entropy = utils.label_specific_entropy_loss(logits[y[:, 1]==0], 0)\
-            #     + utils.label_specific_entropy_loss(logits[y[:, 1] == 1], 1)  # for reweighted loss
+            #entropy = utils.entropy_loss(logits, y) # for non-reweighted loss
+            entropy = utils.label_specific_entropy_loss(logits[y[:, 1]==0], 0)\
+                 + utils.label_specific_entropy_loss(logits[y[:, 1] == 1], 1)  # for reweighted loss
             
             accuracy = utils.accuracy(logits, y)
 
@@ -324,10 +324,10 @@ class GroupFairness():
 
         x, y, group = data
         logits = self.classifier(x)
-        entropy = utils.entropy_loss(logits, y) # for non-reweighted loss
+        #entropy = utils.entropy_loss(logits, y) # for non-reweighted loss
         
-        #entropy = utils.label_specific_entropy_loss(logits[y[:, 1]==0], 0)\
-        #         + utils.label_specific_entropy_loss(logits[y[:, 1] == 1], 1) # for reweighted loss
+        entropy = utils.label_specific_entropy_loss(logits[y[:, 1]==0], 0)\
+                 + utils.label_specific_entropy_loss(logits[y[:, 1] == 1], 1) # for reweighted loss
 
         accuracy = utils.accuracy(logits, y) 
 
@@ -428,17 +428,17 @@ class GroupFairness():
             group_names = range(n_feature)
         self.create_label_wise_batch_data(data_train, data_test)
         self.create_tensorboard()
-        #for step, (batch_train_data, batch_test_data) in enumerate(zip(self.batch_train_data, self.batch_test_data)):
-        for step, data in enumerate(zip(self.batch_train_data0, self.batch_train_data1, self.batch_test_data0, self.batch_test_data1)):
-            batch_train_data0, batch_train_data1, batch_test_data0, batch_test_data1 = data
+        for step, (batch_train_data, batch_test_data) in enumerate(zip(self.batch_train_data, self.batch_test_data)):
+        #for step, data in enumerate(zip(self.batch_train_data0, self.batch_train_data1, self.batch_test_data0, self.batch_test_data1)):
+        #    batch_train_data0, batch_train_data1, batch_test_data0, batch_test_data1 = data
             
-            x0, y0, group0 = batch_train_data0
-            x1, y1, group1 = batch_train_data1
-            batch_train_data = tf.concat([x0, x1], 0), tf.concat([y0, y1], 0), tf.concat([group0, group1], 0)
+        #    x0, y0, group0 = batch_train_data0
+        #    x1, y1, group1 = batch_train_data1
+        #    batch_train_data = tf.concat([x0, x1], 0), tf.concat([y0, y1], 0), tf.concat([group0, group1], 0)
 
-            x0, y0, group0 = batch_test_data0
-            x1, y1, group1 = batch_test_data1
-            batch_test_data = tf.concat([x0, x1], 0), tf.concat([y0, y1], 0), tf.concat([group0, group1], 0)
+        #    x0, y0, group0 = batch_test_data0
+        #    x1, y1, group1 = batch_test_data1
+        #    batch_test_data = tf.concat([x0, x1], 0), tf.concat([y0, y1], 0), tf.concat([group0, group1], 0)
 
             if step < self.start_training:
                 self.update_potentials_only(batch_train_data, groups, step)
@@ -450,16 +450,16 @@ class GroupFairness():
                 if step % 250 == 0:
                     _ = self.metrics(data_train, step=step)
                     accuracy, bal_accuracy, gap_rms = self.metrics(data_test, False, step)
-                    print(f'Test accuracy for step {step}: {accuracy}\n')
-                    for i, name in enumerate(group_names):
-                        print(f'Test GAP RMS for {name} and step {step}: {gap_rms[i]}\n')
-                    print(f'Test balanced accuracy for step {step}: {bal_accuracy}\n\n')
+                    #print(f'Test accuracy for step {step}: {accuracy}\n')
+                    #for i, name in enumerate(group_names):
+                    #    print(f'Test GAP RMS for {name} and step {step}: {gap_rms[i]}\n')
+                    #print(f'Test balanced accuracy for step {step}: {bal_accuracy}\n\n')
 
         accuracy, bal_accuracy, gap_rms = self.metrics(data_test, False, step = self.epoch)
-        print(f'Final test accuracy: {accuracy}\n')
+        print(f'Final test accuracy: {accuracy}')
         for i, name in enumerate(group_names):
-            print(f'Final test GAP RMS for {name}: {gap_rms[i]}\n')
-        print(f'Final test balanced accuracy: {bal_accuracy}\n\n\n')
+            print(f'Final test GAP RMS for {name}: {gap_rms[i]}')
+        print(f'Final test balanced accuracy: {bal_accuracy}\n\n')
 
             
                 

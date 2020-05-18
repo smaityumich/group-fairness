@@ -34,8 +34,8 @@ groups = [list(x) for x in groups]
 groups = tf.cast(groups, tf.int32)
 
 # Experiment
-batch_size = 150
-epoch = 6000
+batch_size = 400
+epoch = 8000
 l2_regularizer = 0
 lr = 1e-4
 wlr = float(sys.argv[2])
