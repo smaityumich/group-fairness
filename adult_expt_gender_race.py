@@ -38,9 +38,9 @@ batch_size = 150
 epoch = 6000
 l2_regularizer = 0
 lr = 1e-4
-wlr = 1e-4
+wlr = float(sys.argv[2])
 w_reg = float(sys.argv[1])
-epsilon = 0.05
+epsilon = float(sys.argv[3])
 start_training = 250
 
 seed = np.random.randint(10000)

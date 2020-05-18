@@ -6,14 +6,16 @@ import itertools
 job_file = 'submit.sbat'
 
 # Experiment 1
-reg_w = [0.1, 0.2, 0.5, 1, 2, 5, 8, 10]
+reg_w = [0.1, 0.2, 0.5, 1, 5, 10]
+wrls = [1e-3, 5e-3, 1e-4, 5e-4]
+eps = [0.1, 0.05, 0.01]
 
 
 os.system('touch summary/adult1.out')
 
 
 
-for reg_wasserstein in reg_w:
+for reg_wasserstein, wlr, epsilon in itertools.product(reg_w, wrls, eps):
     os.system(f'touch {job_file}')
 
         
@@ -28,7 +30,7 @@ for reg_wasserstein in reg_w:
         fh.writelines("#SBATCH --mail-type=NONE\n")
         fh.writelines("#SBATCH --mail-user=smaity@umich.edu\n")
         fh.writelines('#SBATCH --partition=standard\n')
-        fh.writelines(f"python3 adult_expt_gender_race.py {reg_wasserstein} >> summary/adult1.out")
+        fh.writelines(f"python3 adult_expt_gender_race.py {reg_wasserstein} {wlr} {epsilon} >> summary/adult1.out")
 
 
     os.system("sbatch %s" %job_file)
