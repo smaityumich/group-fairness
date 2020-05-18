@@ -426,7 +426,7 @@ class GroupFairness():
         n_feature = groups.shape[1]
         if group_names == None:
             group_names = range(n_feature)
-        self.create_label_wise_batch_data(data_train, data_test)
+        self.create_batch_data(data_train, data_test)
         self.create_tensorboard()
         for step, (batch_train_data, batch_test_data) in enumerate(zip(self.batch_train_data, self.batch_test_data)):
         #for step, data in enumerate(zip(self.batch_train_data0, self.batch_train_data1, self.batch_test_data0, self.batch_test_data1)):

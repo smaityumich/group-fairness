@@ -11,7 +11,7 @@ wrls = [1e-3, 5e-3, 1e-4, 5e-4]
 eps = [0.1, 0.05, 0.01]
 
 
-os.system('touch summary/adult1.out')
+os.system('touch summary/adult2.out')
 
 
 
@@ -30,7 +30,7 @@ for reg_wasserstein, wlr, epsilon in itertools.product(reg_w, wrls, eps):
         fh.writelines("#SBATCH --mail-type=NONE\n")
         fh.writelines("#SBATCH --mail-user=smaity@umich.edu\n")
         fh.writelines('#SBATCH --partition=standard\n')
-        fh.writelines(f"python3 adult_expt_gender_race.py {reg_wasserstein} {wlr} {epsilon} >> summary/adult1.out")
+        fh.writelines(f"python3 adult_expt_gender_race.py {reg_wasserstein} {wlr} {epsilon} >> summary/adult2.out")
 
 
     os.system("sbatch %s" %job_file)
