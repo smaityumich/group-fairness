@@ -1,3 +1,7 @@
+
+classifier_architecture=[50, 50, 10, 2], potential_architecture=[50, 10, 1]
+
+
 parameter:seed-1286-time-20200518-190335-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.05-w_reg-1.0-l2_reg-0
 parameter:seed-1286-time-20200518-190335-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.01-w_reg-1.0-l2_reg-0
 parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.05-w_reg-0.2-l2_reg-0
