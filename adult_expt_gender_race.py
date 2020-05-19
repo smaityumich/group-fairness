@@ -48,5 +48,5 @@ seed = np.random.randint(10000)
 experiment = setup2.GroupFairness(batch_size=batch_size, epoch=epoch, l2_regularizer= l2_regularizer,\
      learning_rate=lr, wasserstein_lr=wlr, wasserstein_regularizer=w_reg, seed=seed, epsilon=epsilon, start_training=start_training)
 experiment.set_graph(classifier_input_shape=(39,), n_groups=4, \
-    classifier_architecture=[50, 50, 10, 2], potential_architecture=[50, 10, 1])
+    classifier_architecture=[100, 100, 50, 2], potential_architecture=[50, 20, 1])
 experiment.fit(data_train, data_test, groups, group_names=['gender', 'race'])
