@@ -7,8 +7,8 @@ job_file = 'submit.sbat'
 
 # Experiment 1
 reg_w = [10, 20, 30, 40, 50, 60]
-wrls = [1e-4, 1e-5, 5e-6, 1e-6]
-eps = [0.1, 0.05, 0.01, 0.005, 0.001]
+wrls = [1e-3, 1e-4, 1e-5, 5e-6, 1e-6]
+eps = [0.1, 0.01, 0.001, 0.0001, 0.00001]
 
 
 os.system('touch summary/adult4.out')
