@@ -43,7 +43,7 @@ w_reg = float(sys.argv[1])
 epsilon = float(sys.argv[3])
 start_training = 250
 
-seed = np.random.randint(10000)
+seed = 1
 
 experiment = setup2.GroupFairness(batch_size=batch_size, epoch=epoch, l2_regularizer= l2_regularizer,\
      learning_rate=lr, wasserstein_lr=wlr, wasserstein_regularizer=w_reg, seed=seed, epsilon=epsilon, start_training=start_training)
