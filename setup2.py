@@ -229,7 +229,7 @@ class GroupFairness():
         self.test_log_dir = 'logs/' + parameter + '/test'
         self.train_summary_writer = tf.summary.create_file_writer(self.train_log_dir)
         self.test_summary_writer = tf.summary.create_file_writer(self.test_log_dir)
-        print('parameter:' + parameter)
+        #print('parameter:' + parameter)
 
 
     def update_potentials_only(self, data, groups, step):
