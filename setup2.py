@@ -455,7 +455,12 @@ class GroupFairness():
                     #    print(f'Test GAP RMS for {name} and step {step}: {gap_rms[i]}\n')
                     #print(f'Test balanced accuracy for step {step}: {bal_accuracy}\n\n')
 
+        parameter = {'epsilon': self.epsilon, 'lr': self.learning_rate, 'wlr': self.wasserstein_lr,\
+             'w_reg': self.wasserstein_regularizer}
+        
+
         accuracy, bal_accuracy, gap_rms = self.metrics(data_test, False, step = self.epoch)
+        print(str(parameter))
         print(f'Final test accuracy: {accuracy}')
         for i, name in enumerate(group_names):
             print(f'Final test GAP RMS for {name}: {gap_rms[i]}')
