@@ -462,7 +462,7 @@ class GroupFairness():
         accuracy, bal_accuracy, gap_rms = self.metrics(data_test, False, step = self.epoch)
         print(str(parameter))
         parameter['test-acc'] = accuracy
-	for i, name in enumerate(group_names):
+        for i, name in enumerate(group_names):
             parameter['test gap-rms-{name}'] = gap_rms[i]
         parameter['test bal-acc'] = bal_accuracy
         print(f'Final test accuracy: {accuracy}')
