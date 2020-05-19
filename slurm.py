@@ -6,8 +6,8 @@ import itertools
 job_file = 'submit.sbat'
 
 # Experiment 1
-reg_w = [10, 15, 20, 25, 30]
-wrls = [1e-4, 5e-4, 5e-5, 1e-5]
+reg_w = [20, 25, 30]
+wrls = [5e-6, 1e-6]
 eps = [0.1, 0.05, 0.01, 0.005, 0.001]
 
 
