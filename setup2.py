@@ -470,7 +470,7 @@ class GroupFairness():
             print(f'Final test GAP RMS for {name}: {gap_rms[i]}')
         print(f'Final test balanced accuracy: {bal_accuracy}\n\n')
         with open('summary/adult5.out', 'a') as f:
-            f.writelines(str(parameter))
+            f.writelines(str(parameter) + '\n')
         f.close()
 
             
