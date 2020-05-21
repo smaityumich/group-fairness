@@ -164,7 +164,7 @@ class unit_expt():
         
         for i, name in enumerate(names):
             result_dict[f'gap-rms-{name}'] = gap_rms[i]
-        with open('summary/adult-wfm1.out', 'a') as f:
+        with open('summary/adult-wfm3.out', 'a') as f:
             f.writelines(str(result_dict) + '\n')
 
 

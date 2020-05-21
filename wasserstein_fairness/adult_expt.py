@@ -37,11 +37,11 @@ groups = tf.cast(groups, tf.int32)
 alpha, beta = float(sys.argv[1]), float(sys.argv[2])
 learning_rate = float(sys.argv[3])
 if len(sys.argv) <= 4:
-     train_batch_size = 500
+     train_batch_size = 1000
 else:
      train_batch_size = int(float(sys.argv[4]))
 
-epoch = 200
+epoch = 10000
 
 
 seed = 1
