@@ -11,7 +11,7 @@ wrls = [1e-3, 1e-4, 1e-5, 5e-6, 1e-6]
 eps = [0.1, 0.01, 0.001, 0.0001, 0.00001]
 
 
-os.system('touch summary/adult5.out')
+os.system('touch summary/adult6.out')
 
 
 

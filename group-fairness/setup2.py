@@ -9,7 +9,6 @@ import utils
 class GroupFairness():
 
     def __init__(self, batch_size = 500, epoch = 1000, learning_rate = 1e-4, wasserstein_lr = 1e-5, \
-                        adversarial_learning_rate = 1e-3, adversarial_epoch = 20, \
                         l2_regularizer = 0, wasserstein_regularizer = 1e-2, \
                             epsilon = 1e0, clip_grad = 40, seed = 1,\
                                  wasserstein_regularization_type = 'L2', start_training = 500):
@@ -38,8 +37,6 @@ class GroupFairness():
         self.wasserstein_regularizer = wasserstein_regularizer
         self.wasserstein_lr = wasserstein_lr
         self.epsilon = epsilon
-        self.adversarial_learning_rate = adversarial_learning_rate
-        self.adversarial_epoch = adversarial_epoch
         self.classifier_optimizer = tf.optimizers.Adam(learning_rate)
         self.wasserstein_optimizer = tf.optimizers.Adam(wasserstein_lr)
         self.wasserstein_regularization_type = wasserstein_regularization_type
@@ -450,10 +447,10 @@ class GroupFairness():
                 if step % 250 == 0:
                     _ = self.metrics(data_train, step=step)
                     accuracy, bal_accuracy, gap_rms = self.metrics(data_test, False, step)
-                    #print(f'Test accuracy for step {step}: {accuracy}\n')
-                    #for i, name in enumerate(group_names):
-                    #    print(f'Test GAP RMS for {name} and step {step}: {gap_rms[i]}\n')
-                    #print(f'Test balanced accuracy for step {step}: {bal_accuracy}\n\n')
+                    print(f'Test accuracy for step {step}: {accuracy}\n')
+                    for i, name in enumerate(group_names):
+                        print(f'Test GAP RMS for {name} and step {step}: {gap_rms[i]}\n')
+                    print(f'Test balanced accuracy for step {step}: {bal_accuracy}\n\n')
 
         parameter = {'epsilon': self.epsilon, 'lr': self.learning_rate, 'wlr': self.wasserstein_lr,\
              'w_reg': self.wasserstein_regularizer}
@@ -469,9 +466,14 @@ class GroupFairness():
         for i, name in enumerate(group_names):
             print(f'Final test GAP RMS for {name}: {gap_rms[i]}')
         print(f'Final test balanced accuracy: {bal_accuracy}\n\n')
-        with open('summary/adult5.out', 'a') as f:
+        with open('summary/adult6.out', 'a') as f:
             f.writelines(str(parameter) + '\n')
         f.close()
+
+        # Saving model
+        filename = f'saved-models/seed-{self.seed}-lr-{self.learning_rate}-wlr-{self.wasserstein_lr}\
+            -epsilon-{self.epsilon}-w_reg-{self.wasserstein_regularizer}-l2_reg-{self.l2_regularizer}'
+        self.classifier.model.save(filename)
 
             
                 
