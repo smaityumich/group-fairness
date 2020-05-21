@@ -166,6 +166,8 @@ class unit_expt():
             result_dict[f'gap-rms-{name}'] = gap_rms[i]
         with open('summary/adult-wfm1.out', 'a') as f:
             f.writelines(str(result_dict) + '\n')
+        filename = f'weights/alpha-{self.alpha}-beta-{self.beta}-lr-{self.learning_rate}-batch_size-{self.train_batch_size}.npy'
+        np.save(filename, self.theta)
 
 
 
