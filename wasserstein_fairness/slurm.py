@@ -23,7 +23,7 @@ for alpha, beta, lr in itertools.product(alpha_vec, beta_vec, lr_vec):
         fh.writelines("#!/bin/bash\n")
         fh.writelines(f"#SBATCH --job-name=adult.job\n")
         fh.writelines('#SBATCH --nodes=1\n')
-        fh.writelines('#SBATCH --cpus-per-task=25\n')
+        fh.writelines('#SBATCH --cpus-per-task=5\n')
         fh.writelines('#SBATCH --mem-per-cpu=1gb\n')
         fh.writelines("#SBATCH --time=03:00:00\n")
         fh.writelines("#SBATCH --account=yuekai1\n")
