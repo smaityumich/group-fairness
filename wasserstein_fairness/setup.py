@@ -11,7 +11,7 @@ import datetime
 
 class unit_expt():
 
-    def __init__(self, train_batch_size = 500, test_batch_size = 300, epoch = 20000, \
+    def __init__(self, train_batch_size = 500, test_batch_size = 300, epoch = 10000, \
         alpha = 0.5, beta = 0.01, lambda_ = 0.1, learning_rate = 1e-3, seed = 1, clip = 40):
         super(unit_expt, self).__init__()
 
