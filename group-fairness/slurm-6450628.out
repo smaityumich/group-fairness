@@ -1,0 +1,305 @@
+2020-05-21 16:32:43.114291: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /sw/arcts/centos7/python3.6-anaconda/5.2.0/lib:/opt/slurm/lib64::
+2020-05-21 16:32:43.114396: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /sw/arcts/centos7/python3.6-anaconda/5.2.0/lib:/opt/slurm/lib64::
+2020-05-21 16:32:43.114407: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-05-21 16:32:52.976787: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /sw/arcts/centos7/python3.6-anaconda/5.2.0/lib:/opt/slurm/lib64::
+2020-05-21 16:32:52.977210: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-05-21 16:32:52.977233: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (gl3108.arc-ts.umich.edu): /proc/driver/nvidia/version does not exist
+2020-05-21 16:32:52.977566: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2020-05-21 16:32:52.984424: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3000000000 Hz
+2020-05-21 16:32:52.984509: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x556bdf6acf50 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-05-21 16:32:52.984519: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+/sw/arcts/centos7/python3.6-anaconda/5.2.0/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+WARNING:tensorflow:From /home/smaity/.local/lib/python3.6/site-packages/tensorflow_core/python/ops/array_grad.py:563: _EagerTensorBase.cpu (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.identity instead.
+2020-05-21 16:59:42.343206: W tensorflow/python/util/util.cc:319] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+WARNING:tensorflow:From /home/smaity/.local/lib/python3.6/site-packages/tensorflow_core/python/ops/resource_variable_ops.py:1786: calling BaseResourceVariable.__init__ (from tensorflow.python.ops.resource_variable_ops) with constraint is deprecated and will be removed in a future version.
+Instructions for updating:
+If using Keras pass *_constraint arguments to layers.
+Test accuracy for step 250: 0.6182421445846558
+
+Test GAP RMS for gender and step 250: 0.12755291163921356
+
+Test GAP RMS for race and step 250: 0.015860524028539658
+
+Test balanced accuracy for step 250: 0.4798734486103058
+
+
+Test accuracy for step 500: 0.8070757389068604
+
+Test GAP RMS for gender and step 500: 0.3426932692527771
+
+Test GAP RMS for race and step 500: 0.08383890986442566
+
+Test balanced accuracy for step 500: 0.8020195960998535
+
+
+Test accuracy for step 750: 0.8168048858642578
+
+Test GAP RMS for gender and step 750: 0.26568928360939026
+
+Test GAP RMS for race and step 750: 0.07598637044429779
+
+Test balanced accuracy for step 750: 0.813539981842041
+
+
+Test accuracy for step 1000: 0.8200110793113708
+
+Test GAP RMS for gender and step 1000: 0.24954183399677277
+
+Test GAP RMS for race and step 1000: 0.07071488350629807
+
+Test balanced accuracy for step 1000: 0.8141145706176758
+
+
+Test accuracy for step 1250: 0.8169154524803162
+
+Test GAP RMS for gender and step 1250: 0.24507828056812286
+
+Test GAP RMS for race and step 1250: 0.0690438374876976
+
+Test balanced accuracy for step 1250: 0.8174715042114258
+
+
+Test accuracy for step 1500: 0.8152570724487305
+
+Test GAP RMS for gender and step 1500: 0.23335756361484528
+
+Test GAP RMS for race and step 1500: 0.07042614370584488
+
+Test balanced accuracy for step 1500: 0.8216235637664795
+
+
+Test accuracy for step 1750: 0.8128247857093811
+
+Test GAP RMS for gender and step 1750: 0.23032310605049133
+
+Test GAP RMS for race and step 1750: 0.07447929680347443
+
+Test balanced accuracy for step 1750: 0.8237209320068359
+
+
+Test accuracy for step 2000: 0.8132669925689697
+
+Test GAP RMS for gender and step 2000: 0.21641191840171814
+
+Test GAP RMS for race and step 2000: 0.0743759274482727
+
+Test balanced accuracy for step 2000: 0.8260195255279541
+
+
+Test accuracy for step 2250: 0.8165837526321411
+
+Test GAP RMS for gender and step 2250: 0.21048897504806519
+
+Test GAP RMS for race and step 2250: 0.06728683412075043
+
+Test balanced accuracy for step 2250: 0.8249694108963013
+
+
+Test accuracy for step 2500: 0.8172470927238464
+
+Test GAP RMS for gender and step 2500: 0.1926986575126648
+
+Test GAP RMS for race and step 2500: 0.06492602825164795
+
+Test balanced accuracy for step 2500: 0.8247902393341064
+
+
+Test accuracy for step 2750: 0.8119403123855591
+
+Test GAP RMS for gender and step 2750: 0.19309961795806885
+
+Test GAP RMS for race and step 2750: 0.07225044816732407
+
+Test balanced accuracy for step 2750: 0.8274582028388977
+
+
+Test accuracy for step 3000: 0.8120508790016174
+
+Test GAP RMS for gender and step 3000: 0.1948392689228058
+
+Test GAP RMS for race and step 3000: 0.06992453336715698
+
+Test balanced accuracy for step 3000: 0.8252161741256714
+
+
+Test accuracy for step 3250: 0.8163626194000244
+
+Test GAP RMS for gender and step 3250: 0.17414450645446777
+
+Test GAP RMS for race and step 3250: 0.06433305889368057
+
+Test balanced accuracy for step 3250: 0.8268297910690308
+
+
+Test accuracy for step 3500: 0.8152570724487305
+
+Test GAP RMS for gender and step 3500: 0.16591058671474457
+
+Test GAP RMS for race and step 3500: 0.06597137451171875
+
+Test balanced accuracy for step 3500: 0.8282601833343506
+
+
+Test accuracy for step 3750: 0.8135986924171448
+
+Test GAP RMS for gender and step 3750: 0.16621176898479462
+
+Test GAP RMS for race and step 3750: 0.0681966170668602
+
+Test balanced accuracy for step 3750: 0.8293254375457764
+
+
+Test accuracy for step 4000: 0.8159204125404358
+
+Test GAP RMS for gender and step 4000: 0.16245119273662567
+
+Test GAP RMS for race and step 4000: 0.06280672550201416
+
+Test balanced accuracy for step 4000: 0.8263833522796631
+
+
+Test accuracy for step 4250: 0.8134881258010864
+
+Test GAP RMS for gender and step 4250: 0.1648797243833542
+
+Test GAP RMS for race and step 4250: 0.06990420818328857
+
+Test balanced accuracy for step 4250: 0.8277090191841125
+
+
+Test accuracy for step 4500: 0.8199005126953125
+
+Test GAP RMS for gender and step 4500: 0.15254822373390198
+
+Test GAP RMS for race and step 4500: 0.06349834054708481
+
+Test balanced accuracy for step 4500: 0.8277778625488281
+
+
+Test accuracy for step 4750: 0.8127142190933228
+
+Test GAP RMS for gender and step 4750: 0.15009386837482452
+
+Test GAP RMS for race and step 4750: 0.06898611783981323
+
+Test balanced accuracy for step 4750: 0.8281238079071045
+
+
+Test accuracy for step 5000: 0.8171365261077881
+
+Test GAP RMS for gender and step 5000: 0.15187665820121765
+
+Test GAP RMS for race and step 5000: 0.06545481085777283
+
+Test balanced accuracy for step 5000: 0.8284214735031128
+
+
+Test accuracy for step 5250: 0.8168048858642578
+
+Test GAP RMS for gender and step 5250: 0.15021993219852448
+
+Test GAP RMS for race and step 5250: 0.0652664303779602
+
+Test balanced accuracy for step 5250: 0.8283566236495972
+
+
+Test accuracy for step 5500: 0.8189054727554321
+
+Test GAP RMS for gender and step 5500: 0.14113672077655792
+
+Test GAP RMS for race and step 5500: 0.0653904601931572
+
+Test balanced accuracy for step 5500: 0.8286639451980591
+
+
+Test accuracy for step 5750: 0.8170259594917297
+
+Test GAP RMS for gender and step 5750: 0.13367590308189392
+
+Test GAP RMS for race and step 5750: 0.06578695774078369
+
+Test balanced accuracy for step 5750: 0.8285027742385864
+
+
+Test accuracy for step 6000: 0.8169154524803162
+
+Test GAP RMS for gender and step 6000: 0.1355060338973999
+
+Test GAP RMS for race and step 6000: 0.06547746062278748
+
+Test balanced accuracy for step 6000: 0.8281210064888
+
+
+Test accuracy for step 6250: 0.8182421326637268
+
+Test GAP RMS for gender and step 6250: 0.13662788271903992
+
+Test GAP RMS for race and step 6250: 0.06676167994737625
+
+Test balanced accuracy for step 6250: 0.8293061256408691
+
+
+Test accuracy for step 6500: 0.8174682259559631
+
+Test GAP RMS for gender and step 6500: 0.1272299736738205
+
+Test GAP RMS for race and step 6500: 0.06379115581512451
+
+Test balanced accuracy for step 6500: 0.8289492130279541
+
+
+Test accuracy for step 6750: 0.8229961395263672
+
+Test GAP RMS for gender and step 6750: 0.11266529560089111
+
+Test GAP RMS for race and step 6750: 0.0637640580534935
+
+Test balanced accuracy for step 6750: 0.827507734298706
+
+
+Test accuracy for step 7000: 0.8195688128471375
+
+Test GAP RMS for gender and step 7000: 0.11349484324455261
+
+Test GAP RMS for race and step 7000: 0.06368940323591232
+
+Test balanced accuracy for step 7000: 0.828021764755249
+
+
+Test accuracy for step 7250: 0.8212271928787231
+
+Test GAP RMS for gender and step 7250: 0.11466367542743683
+
+Test GAP RMS for race and step 7250: 0.05967869609594345
+
+Test balanced accuracy for step 7250: 0.8269565105438232
+
+
+Test accuracy for step 7500: 0.8221116662025452
+
+Test GAP RMS for gender and step 7500: 0.11255727708339691
+
+Test GAP RMS for race and step 7500: 0.057836003601551056
+
+Test balanced accuracy for step 7500: 0.8263061046600342
+
+
+Test accuracy for step 7750: 0.8215588927268982
+
+Test GAP RMS for gender and step 7750: 0.10091835260391235
+
+Test GAP RMS for race and step 7750: 0.0559786818921566
+
+Test balanced accuracy for step 7750: 0.8257865905761719
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 30.0}
+Final test accuracy: 0.8187949061393738
+Final test GAP RMS for gender: 0.09653829783201218
+Final test GAP RMS for race: 0.05666908994317055
+Final test balanced accuracy: 0.8239607214927673
+
+
