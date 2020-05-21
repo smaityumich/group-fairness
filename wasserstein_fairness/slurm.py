@@ -6,9 +6,9 @@ import itertools
 job_file = 'submit.sbat'
 
 # Experiment 1
-alpha_vec = [0.5,]#[0, 0.5]
-beta_vec = [1e-1,]#[1e-2, 3e-2, 0.1, 0.3, 1, 3, 10, 30, 100]
-lr_vec = [1e-4,]#[1e-4, 1e-3, 1e-2, 1e-1]
+alpha_vec = [0, 0.5]
+beta_vec = [1e-2, 3e-2, 0.1, 0.3, 1, 3, 10, 30, 100]
+lr_vec = [1e-4, 1e-3, 1e-2, 1e-1]
 
 
 os.system('touch summary/adult-wfm3.out')
@@ -23,8 +23,8 @@ for alpha, beta, lr in itertools.product(alpha_vec, beta_vec, lr_vec):
         fh.writelines("#!/bin/bash\n")
         fh.writelines(f"#SBATCH --job-name=adult.job\n")
         fh.writelines('#SBATCH --nodes=1\n')
-        fh.writelines('#SBATCH --cpus-per-task=1\n')
-        fh.writelines('#SBATCH --mem-per-cpu=2gb\n')
+        fh.writelines('#SBATCH --cpus-per-task=25\n')
+        fh.writelines('#SBATCH --mem-per-cpu=1gb\n')
         fh.writelines("#SBATCH --time=03:00:00\n")
         fh.writelines("#SBATCH --account=yuekai1\n")
         fh.writelines("#SBATCH --mail-type=NONE\n")
