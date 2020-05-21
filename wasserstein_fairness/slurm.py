@@ -6,12 +6,12 @@ import itertools
 job_file = 'submit.sbat'
 
 # Experiment 1
-alpha_vec = [0, 0.5]
-beta_vec = [1e-2, 3e-2, 0.1, 0.3, 1, 3, 10, 30, 100]
-lr_vec = [1e-4, 1e-3, 1e-2, 1e-1]
+alpha_vec = [0.5,]#[0, 0.5]
+beta_vec = [1e-1,]#[1e-2, 3e-2, 0.1, 0.3, 1, 3, 10, 30, 100]
+lr_vec = [1e-4,]#[1e-4, 1e-3, 1e-2, 1e-1]
 
 
-os.system('touch summary/adult-wfm1.out')
+os.system('touch summary/adult-wfm3.out')
 
 
 

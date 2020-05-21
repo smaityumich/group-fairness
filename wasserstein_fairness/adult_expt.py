@@ -37,15 +37,17 @@ groups = tf.cast(groups, tf.int32)
 alpha, beta = float(sys.argv[1]), float(sys.argv[2])
 learning_rate = float(sys.argv[3])
 if len(sys.argv) <= 4:
-     train_batch_size = 100
+     train_batch_size = 500
 else:
      train_batch_size = int(float(sys.argv[4]))
+
+epoch = 200
 
 
 seed = 1
 
 # Setting up unit experiment
 expt = setup.unit_expt(train_batch_size=train_batch_size, alpha=alpha, beta=beta,\
-      seed= seed, learning_rate=learning_rate)
+      seed= seed, learning_rate=learning_rate, epoch = epoch)
 expt.fit(data_train, data_test)
 
