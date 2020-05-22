@@ -1,72 +1,72 @@
-{'alpha': 0.5, 'beta': 0.03, 'lambda': 0.1, 'accuracy': 0.32371475953565504, 'balanced accuracy': 0.5523167251148737, 'gap-rms-gender': 0.05159116911006028, 'gap-rms-race': 0.017673198591677472}
-{'alpha': 0.0, 'beta': 0.1, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 0.1, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 100.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 3.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 0.01, 'lambda': 0.1, 'accuracy': 0.2564953012714207, 'balanced accuracy': 0.5088372772421852, 'gap-rms-gender': 0.006497901477062955, 'gap-rms-race': 0.008510068382596981}
-{'alpha': 0.5, 'beta': 100.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 0.3, 'lambda': 0.1, 'accuracy': 0.7478164731896075, 'balanced accuracy': 0.7147183465992628, 'gap-rms-gender': 0.0944663681639548, 'gap-rms-race': 0.04359436032706427}
-{'alpha': 0.5, 'beta': 3.0, 'lambda': 0.1, 'accuracy': 0.2435599778883361, 'balanced accuracy': 0.5002921413964359, 'gap-rms-gender': 0.00024137783503463625, 'gap-rms-race': 0.0004892626059066394}
-{'alpha': 0.0, 'beta': 1.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 0.03, 'lambda': 0.1, 'accuracy': 0.7877280265339967, 'balanced accuracy': 0.767476372616188, 'gap-rms-gender': 0.15715881971312873, 'gap-rms-race': 0.07569072548268176}
-{'alpha': 0.5, 'beta': 30.0, 'lambda': 0.1, 'accuracy': 0.7568822553897181, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 1.0, 'lambda': 0.1, 'accuracy': 0.8023217247097844, 'balanced accuracy': 0.7772713794294993, 'gap-rms-gender': 0.17378739444165633, 'gap-rms-race': 0.07344910862414873}
-{'alpha': 0.0, 'beta': 30.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 100.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 0.1, 'lambda': 0.1, 'accuracy': 0.7420674405749033, 'balanced accuracy': 0.7241938113053539, 'gap-rms-gender': 0.10681610595595699, 'gap-rms-race': 0.05096427885555816}
-{'alpha': 0.5, 'beta': 0.03, 'lambda': 0.1, 'accuracy': 0.7903814262023218, 'balanced accuracy': 0.7723160356133514, 'gap-rms-gender': 0.17401121532008812, 'gap-rms-race': 0.07812552957624555}
-{'alpha': 0.0, 'beta': 0.1, 'lambda': 0.1, 'accuracy': 0.2517412935323383, 'balanced accuracy': 0.5056967572304996, 'gap-rms-gender': 0.0037684654213531784, 'gap-rms-race': 0.004823026730620342}
-{'alpha': 0.5, 'beta': 0.1, 'lambda': 0.1, 'accuracy': 0.3189607517965727, 'balanced accuracy': 0.5493305458341156, 'gap-rms-gender': 0.050037330254605855, 'gap-rms-race': 0.01702710042204413}
-{'alpha': 0.5, 'beta': 10.0, 'lambda': 0.1, 'accuracy': 0.7568822553897181, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 100.0, 'lambda': 0.1, 'accuracy': 0.7568822553897181, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 1.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 10.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 0.01, 'lambda': 0.1, 'accuracy': 0.32548369264787175, 'balanced accuracy': 0.5534852907006172, 'gap-rms-gender': 0.05278392386379458, 'gap-rms-race': 0.018788362668622664}
-{'alpha': 0.5, 'beta': 0.3, 'lambda': 0.1, 'accuracy': 0.8024322830292979, 'balanced accuracy': 0.7670035858064717, 'gap-rms-gender': 0.1543530322179321, 'gap-rms-race': 0.06004179650720225}
-{'alpha': 0.0, 'beta': 3.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 10.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 0.3, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 10.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 0.01, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 0.3, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 100.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 0.1, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 100.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 100.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 0.03, 'lambda': 0.1, 'accuracy': 0.2555002763957988, 'balanced accuracy': 0.5081799591002045, 'gap-rms-gender': 0.0062803947798433625, 'gap-rms-race': 0.007409227519307121}
-{'alpha': 0.0, 'beta': 0.03, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 1.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 0.3, 'lambda': 0.1, 'accuracy': 0.30635710337202876, 'balanced accuracy': 0.5413131974975478, 'gap-rms-gender': 0.04210459264619366, 'gap-rms-race': 0.01942344794512613}
-{'alpha': 0.0, 'beta': 30.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 0.3, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 0.1, 'lambda': 0.1, 'accuracy': 0.7910447761194029, 'balanced accuracy': 0.7727542477080053, 'gap-rms-gender': 0.17337096582046044, 'gap-rms-race': 0.07761743104258254}
-{'alpha': 0.5, 'beta': 3.0, 'lambda': 0.1, 'accuracy': 0.7568822553897181, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 30.0, 'lambda': 0.1, 'accuracy': 0.7568822553897181, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 1.0, 'lambda': 0.1, 'accuracy': 0.7014925373134329, 'balanced accuracy': 0.6489268486711552, 'gap-rms-gender': 0.019763655017549158, 'gap-rms-race': 0.04106098465797457}
-{'alpha': 0.5, 'beta': 1.0, 'lambda': 0.1, 'accuracy': 0.27805417357656165, 'balanced accuracy': 0.5229248295875067, 'gap-rms-gender': 0.024760707913198194, 'gap-rms-race': 0.012832185091667817}
-{'alpha': 0.5, 'beta': 0.01, 'lambda': 0.1, 'accuracy': 0.7904919845218352, 'balanced accuracy': 0.7726977524243153, 'gap-rms-gender': 0.17069068524669812, 'gap-rms-race': 0.07599371347434189}
-{'alpha': 0.0, 'beta': 1.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 0.01, 'lambda': 0.1, 'accuracy': 0.7416252072968491, 'balanced accuracy': 0.7300752991460144, 'gap-rms-gender': 0.1143161371498496, 'gap-rms-race': 0.06088095149981592}
-{'alpha': 0.0, 'beta': 0.03, 'lambda': 0.1, 'accuracy': 0.24665561083471532, 'balanced accuracy': 0.502337131171487, 'gap-rms-gender': 0.0015460370959398358, 'gap-rms-race': 0.003914100847252959}
-{'alpha': 0.0, 'beta': 0.01, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 0.3, 'lambda': 0.1, 'accuracy': 0.7927031509121062, 'balanced accuracy': 0.7735410964827849, 'gap-rms-gender': 0.17032891738679193, 'gap-rms-race': 0.07853365429804951}
-{'alpha': 0.5, 'beta': 10.0, 'lambda': 0.1, 'accuracy': 0.7568822553897181, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 30.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 3.0, 'lambda': 0.1, 'accuracy': 0.7568822553897181, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 0.03, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 30.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 3.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 3.0, 'lambda': 0.1, 'accuracy': 0.2791597567716971, 'balanced accuracy': 0.5140860577610968, 'gap-rms-gender': 0.1079175147015811, 'gap-rms-race': 0.003153916157343284}
-{'alpha': 0.0, 'beta': 10.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 100.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 0.03, 'lambda': 0.1, 'accuracy': 0.7416252072968491, 'balanced accuracy': 0.728377551105813, 'gap-rms-gender': 0.1123176547239153, 'gap-rms-race': 0.05684933234903572}
-{'alpha': 0.5, 'beta': 0.01, 'lambda': 0.1, 'accuracy': 0.7876174682144831, 'balanced accuracy': 0.7678663594598613, 'gap-rms-gender': 0.15818664682453107, 'gap-rms-race': 0.07629719445542374}
-{'alpha': 0.0, 'beta': 10.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 0.1, 'lambda': 0.1, 'accuracy': 0.7909342177998895, 'balanced accuracy': 0.7675879682382918, 'gap-rms-gender': 0.15855099673419723, 'gap-rms-race': 0.0738039431364964}
-{'alpha': 0.0, 'beta': 30.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.5, 'beta': 1.0, 'lambda': 0.1, 'accuracy': 0.8044223327805418, 'balanced accuracy': 0.6076495211949978, 'gap-rms-gender': 0.030476864759238224, 'gap-rms-race': 0.005677158390828241}
-{'alpha': 0.0, 'beta': 0.01, 'lambda': 0.1, 'accuracy': 0.2517412935323383, 'balanced accuracy': 0.5056967572304996, 'gap-rms-gender': 0.0037684654213531784, 'gap-rms-race': 0.004823026730620342}
-{'alpha': 0.0, 'beta': 30.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 10.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 3.0, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
-{'alpha': 0.0, 'beta': 0.3, 'lambda': 0.1, 'accuracy': 0.24665561083471532, 'balanced accuracy': 0.502337131171487, 'gap-rms-gender': 0.0015460370959398358, 'gap-rms-race': 0.003914100847252959}
+{'alpha': 0.5, 'beta': 0.3, 'lr': 0.001, 'lambda': 0.1, 'accuracy': 0.7478164731896075, 'balanced accuracy': 0.7147183465992628, 'gap-rms-gender': 0.0944663681639548, 'gap-rms-race': 0.04359436032706427}
+{'alpha': 0.0, 'beta': 0.3, 'lr': 0.1, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 3.0, 'lr': 0.0001, 'lambda': 0.1, 'accuracy': 0.2435599778883361, 'balanced accuracy': 0.5002921413964359, 'gap-rms-gender': 0.00024137783503463625, 'gap-rms-race': 0.0004892626059066394}
+{'alpha': 0.5, 'beta': 0.3, 'lr': 0.01, 'lambda': 0.1, 'accuracy': 0.8024322830292979, 'balanced accuracy': 0.7670035858064717, 'gap-rms-gender': 0.1543530322179321, 'gap-rms-race': 0.06004179650720225}
+{'alpha': 0.5, 'beta': 0.01, 'lr': 0.001, 'lambda': 0.1, 'accuracy': 0.7416252072968491, 'balanced accuracy': 0.7300752991460144, 'gap-rms-gender': 0.1143161371498496, 'gap-rms-race': 0.06088095149981592}
+{'alpha': 0.5, 'beta': 1.0, 'lr': 0.1, 'lambda': 0.1, 'accuracy': 0.8023217247097844, 'balanced accuracy': 0.7772713794294993, 'gap-rms-gender': 0.17378739444165633, 'gap-rms-race': 0.07344910862414873}
+{'alpha': 0.0, 'beta': 1.0, 'lr': 0.0001, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 100.0, 'lr': 0.001, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 0.03, 'lr': 0.0001, 'lambda': 0.1, 'accuracy': 0.32371475953565504, 'balanced accuracy': 0.5523167251148737, 'gap-rms-gender': 0.05159116911006028, 'gap-rms-race': 0.017673198591677472}
+{'alpha': 0.5, 'beta': 10.0, 'lr': 0.01, 'lambda': 0.1, 'accuracy': 0.7568822553897181, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 100.0, 'lr': 0.0001, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 0.1, 'lr': 0.0001, 'lambda': 0.1, 'accuracy': 0.3189607517965727, 'balanced accuracy': 0.5493305458341156, 'gap-rms-gender': 0.050037330254605855, 'gap-rms-race': 0.01702710042204413}
+{'alpha': 0.5, 'beta': 10.0, 'lr': 0.001, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 10.0, 'lr': 0.1, 'lambda': 0.1, 'accuracy': 0.7568822553897181, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 100.0, 'lr': 0.01, 'lambda': 0.1, 'accuracy': 0.7568822553897181, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 0.3, 'lr': 0.0001, 'lambda': 0.1, 'accuracy': 0.24665561083471532, 'balanced accuracy': 0.502337131171487, 'gap-rms-gender': 0.0015460370959398358, 'gap-rms-race': 0.003914100847252959}
+{'alpha': 0.0, 'beta': 100.0, 'lr': 0.001, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 1.0, 'lr': 0.001, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 0.3, 'lr': 0.01, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 10.0, 'lr': 0.1, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 30.0, 'lr': 0.0001, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 10.0, 'lr': 0.001, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 0.03, 'lr': 0.1, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 30.0, 'lr': 0.01, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 3.0, 'lr': 0.1, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 0.1, 'lr': 0.1, 'lambda': 0.1, 'accuracy': 0.7910447761194029, 'balanced accuracy': 0.7727542477080053, 'gap-rms-gender': 0.17337096582046044, 'gap-rms-race': 0.07761743104258254}
+{'alpha': 0.0, 'beta': 0.1, 'lr': 0.001, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 1.0, 'lr': 0.01, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 0.1, 'lr': 0.01, 'lambda': 0.1, 'accuracy': 0.7909342177998895, 'balanced accuracy': 0.7675879682382918, 'gap-rms-gender': 0.15855099673419723, 'gap-rms-race': 0.0738039431364964}
+{'alpha': 0.0, 'beta': 0.1, 'lr': 0.0001, 'lambda': 0.1, 'accuracy': 0.2517412935323383, 'balanced accuracy': 0.5056967572304996, 'gap-rms-gender': 0.0037684654213531784, 'gap-rms-race': 0.004823026730620342}
+{'alpha': 0.5, 'beta': 1.0, 'lr': 0.001, 'lambda': 0.1, 'accuracy': 0.7014925373134329, 'balanced accuracy': 0.6489268486711552, 'gap-rms-gender': 0.019763655017549158, 'gap-rms-race': 0.04106098465797457}
+{'alpha': 0.0, 'beta': 10.0, 'lr': 0.0001, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 0.3, 'lr': 0.0001, 'lambda': 0.1, 'accuracy': 0.30635710337202876, 'balanced accuracy': 0.5413131974975478, 'gap-rms-gender': 0.04210459264619366, 'gap-rms-race': 0.01942344794512613}
+{'alpha': 0.0, 'beta': 0.01, 'lr': 0.0001, 'lambda': 0.1, 'accuracy': 0.2564953012714207, 'balanced accuracy': 0.5088372772421852, 'gap-rms-gender': 0.006497901477062955, 'gap-rms-race': 0.008510068382596981}
+{'alpha': 0.5, 'beta': 0.03, 'lr': 0.001, 'lambda': 0.1, 'accuracy': 0.7416252072968491, 'balanced accuracy': 0.728377551105813, 'gap-rms-gender': 0.1123176547239153, 'gap-rms-race': 0.05684933234903572}
+{'alpha': 0.5, 'beta': 30.0, 'lr': 0.01, 'lambda': 0.1, 'accuracy': 0.7568822553897181, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 0.01, 'lr': 0.1, 'lambda': 0.1, 'accuracy': 0.7904919845218352, 'balanced accuracy': 0.7726977524243153, 'gap-rms-gender': 0.17069068524669812, 'gap-rms-race': 0.07599371347434189}
+{'alpha': 0.0, 'beta': 0.03, 'lr': 0.01, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 1.0, 'lr': 0.0001, 'lambda': 0.1, 'accuracy': 0.27805417357656165, 'balanced accuracy': 0.5229248295875067, 'gap-rms-gender': 0.024760707913198194, 'gap-rms-race': 0.012832185091667817}
+{'alpha': 0.0, 'beta': 0.03, 'lr': 0.001, 'lambda': 0.1, 'accuracy': 0.24665561083471532, 'balanced accuracy': 0.502337131171487, 'gap-rms-gender': 0.0015460370959398358, 'gap-rms-race': 0.003914100847252959}
+{'alpha': 0.0, 'beta': 0.03, 'lr': 0.0001, 'lambda': 0.1, 'accuracy': 0.2555002763957988, 'balanced accuracy': 0.5081799591002045, 'gap-rms-gender': 0.0062803947798433625, 'gap-rms-race': 0.007409227519307121}
+{'alpha': 0.5, 'beta': 30.0, 'lr': 0.1, 'lambda': 0.1, 'accuracy': 0.7568822553897181, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 0.01, 'lr': 0.1, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 0.03, 'lr': 0.01, 'lambda': 0.1, 'accuracy': 0.7877280265339967, 'balanced accuracy': 0.767476372616188, 'gap-rms-gender': 0.15715881971312873, 'gap-rms-race': 0.07569072548268176}
+{'alpha': 0.5, 'beta': 0.03, 'lr': 0.1, 'lambda': 0.1, 'accuracy': 0.7903814262023218, 'balanced accuracy': 0.7723160356133514, 'gap-rms-gender': 0.17401121532008812, 'gap-rms-race': 0.07812552957624555}
+{'alpha': 0.5, 'beta': 0.1, 'lr': 0.001, 'lambda': 0.1, 'accuracy': 0.7420674405749033, 'balanced accuracy': 0.7241938113053539, 'gap-rms-gender': 0.10681610595595699, 'gap-rms-race': 0.05096427885555816}
+{'alpha': 0.0, 'beta': 10.0, 'lr': 0.01, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 3.0, 'lr': 0.01, 'lambda': 0.1, 'accuracy': 0.7568822553897181, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 0.3, 'lr': 0.001, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 3.0, 'lr': 0.1, 'lambda': 0.1, 'accuracy': 0.7568822553897181, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 1.0, 'lr': 0.01, 'lambda': 0.1, 'accuracy': 0.8044223327805418, 'balanced accuracy': 0.6076495211949978, 'gap-rms-gender': 0.030476864759238224, 'gap-rms-race': 0.005677158390828241}
+{'alpha': 0.0, 'beta': 3.0, 'lr': 0.001, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 100.0, 'lr': 0.01, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 10.0, 'lr': 0.0001, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 3.0, 'lr': 0.0001, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 100.0, 'lr': 0.0001, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 0.01, 'lr': 0.01, 'lambda': 0.1, 'accuracy': 0.7876174682144831, 'balanced accuracy': 0.7678663594598613, 'gap-rms-gender': 0.15818664682453107, 'gap-rms-race': 0.07629719445542374}
+{'alpha': 0.0, 'beta': 3.0, 'lr': 0.01, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 100.0, 'lr': 0.1, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 30.0, 'lr': 0.1, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 1.0, 'lr': 0.1, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 0.01, 'lr': 0.0001, 'lambda': 0.1, 'accuracy': 0.32548369264787175, 'balanced accuracy': 0.5534852907006172, 'gap-rms-gender': 0.05278392386379458, 'gap-rms-race': 0.018788362668622664}
+{'alpha': 0.5, 'beta': 3.0, 'lr': 0.001, 'lambda': 0.1, 'accuracy': 0.2791597567716971, 'balanced accuracy': 0.5140860577610968, 'gap-rms-gender': 0.1079175147015811, 'gap-rms-race': 0.003153916157343284}
+{'alpha': 0.5, 'beta': 30.0, 'lr': 0.0001, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 30.0, 'lr': 0.001, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 30.0, 'lr': 0.001, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 0.1, 'lr': 0.01, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 0.1, 'lr': 0.1, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.5, 'beta': 0.3, 'lr': 0.1, 'lambda': 0.1, 'accuracy': 0.7927031509121062, 'balanced accuracy': 0.7735410964827849, 'gap-rms-gender': 0.17032891738679193, 'gap-rms-race': 0.07853365429804951}
+{'alpha': 0.5, 'beta': 100.0, 'lr': 0.1, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 0.01, 'lr': 0.01, 'lambda': 0.1, 'accuracy': 0.24311774461028193, 'balanced accuracy': 0.5, 'gap-rms-gender': 0.0, 'gap-rms-race': 0.0}
+{'alpha': 0.0, 'beta': 0.01, 'lr': 0.001, 'lambda': 0.1, 'accuracy': 0.2517412935323383, 'balanced accuracy': 0.5056967572304996, 'gap-rms-gender': 0.0037684654213531784, 'gap-rms-race': 0.004823026730620342}
