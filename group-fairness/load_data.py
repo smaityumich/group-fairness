@@ -33,5 +33,5 @@ groups = list(itertools.product([0,1], [0,1]))
 groups = [list(x) for x in groups]
 groups = tf.cast(groups, tf.int32)
 
-grouped_x_train = [x_train[group_train == g] for g in groups]
-grouped_x_test = [x_test[group_test == g] for g in groups]
+grouped_x_train = [x_train[tf.reduce_all(group_train == g, axis = 1)] for g in groups]
+grouped_x_test = [x_test[tf.reduce_all(group_test == g, axis = 1)] for g in groups]

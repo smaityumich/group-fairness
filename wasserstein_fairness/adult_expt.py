@@ -41,7 +41,7 @@ if len(sys.argv) <= 4:
 else:
      train_batch_size = int(float(sys.argv[4]))
 
-epoch = 10000
+epoch = 20000
 
 
 seed = 1

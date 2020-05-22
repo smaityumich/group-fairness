@@ -68,7 +68,7 @@ class unit_expt():
         
         logistic_grad, wasserstein_grad, logistic_objective, wasserstein_objective\
              = combined_costs.gradient_smoothed_logistic(dataframe_train, groups_train, theta = self.theta,\
-                 lambda_ = self.lambda_, beta = self.beta, alpha= self.alpha)
+                 lambda_ = self.lambda_, beta = self.beta, alpha= self.alpha, distance='wasserstein-2')
 
         combined_grad = self.alpha * np.mean(logistic_grad, axis = 1) + (1-self.alpha) * wasserstein_grad
         clipped_grad = np.clip(combined_grad, -self.clip, self.clip)

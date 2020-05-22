@@ -1,7 +1,6 @@
 import numpy as np
 import wasserstein_fairness.basic_costs as costs
-def metrics(data, grouped_data, alpha, beta, lr, batch_size):
-    x, _ = data
+def metrics(x, grouped_data, alpha, beta, lr, batch_size):
 
     # Retrive coeff vector
     filename = f'weights/alpha-{alpha}-beta-{beta}-lr-{lr}-batch_size-{batch_size}.npy'
@@ -37,3 +36,5 @@ def metrics(data, grouped_data, alpha, beta, lr, batch_size):
                 spdd += np.mean(np.absolute(pred_group[j, :] - pred_group[i, :]))
 
     return dd_half, sdd, spdd
+
+

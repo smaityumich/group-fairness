@@ -23,4 +23,4 @@ groups_train = [x_train[np.all(group_train == g, axis = 1)] for g in groups]
 groups_test = [x_test[np.all(group_test == g, axis = 1)] for g in groups]
 
 data = x_test, y_test
-grouped_data = group_test
+grouped_data = groups_test
