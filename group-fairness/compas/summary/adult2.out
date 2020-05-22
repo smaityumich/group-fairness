@@ -1,0 +1,482 @@
+
+classifier_architecture=[50, 50, 10, 2], potential_architecture=[50, 10, 1]
+
+
+parameter:seed-1286-time-20200518-190335-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.05-w_reg-1.0-l2_reg-0
+parameter:seed-1286-time-20200518-190335-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.01-w_reg-1.0-l2_reg-0
+parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.05-w_reg-0.2-l2_reg-0
+parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.1-w_reg-0.2-l2_reg-0
+parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.01-w_reg-0.2-l2_reg-0
+parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.1-w_reg-0.5-l2_reg-0
+parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.01-w_reg-0.5-l2_reg-0
+parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.05-w_reg-0.5-l2_reg-0
+parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.01-w_reg-0.5-l2_reg-0
+parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.01-w_reg-0.5-l2_reg-0
+parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.05-w_reg-0.5-l2_reg-0
+parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.1-w_reg-0.5-l2_reg-0
+parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.1-w_reg-1.0-l2_reg-0
+parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.1-w_reg-0.2-l2_reg-0
+parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.1-w_reg-10.0-l2_reg-0
+parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.1-w_reg-10.0-l2_reg-0
+parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.05-w_reg-10.0-l2_reg-0
+parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.01-w_reg-10.0-l2_reg-0
+parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.01-w_reg-10.0-l2_reg-0
+parameter:seed-1286-time-20200518-190336-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.05-w_reg-10.0-l2_reg-0
+parameter:seed-1286-time-20200518-190337-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.01-w_reg-5.0-l2_reg-0
+parameter:seed-1286-time-20200518-190337-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.05-w_reg-5.0-l2_reg-0
+parameter:seed-1286-time-20200518-190337-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.05-w_reg-10.0-l2_reg-0
+parameter:seed-1286-time-20200518-190337-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.05-w_reg-10.0-l2_reg-0
+parameter:seed-1286-time-20200518-190337-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.05-w_reg-5.0-l2_reg-0
+parameter:seed-1286-time-20200518-190337-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.1-w_reg-10.0-l2_reg-0
+parameter:seed-1286-time-20200518-190337-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.1-w_reg-5.0-l2_reg-0
+parameter:seed-1286-time-20200518-190337-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.1-w_reg-5.0-l2_reg-0
+parameter:seed-1286-time-20200518-190337-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.01-w_reg-10.0-l2_reg-0
+parameter:seed-1286-time-20200518-190337-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.01-w_reg-5.0-l2_reg-0
+parameter:seed-1286-time-20200518-190337-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.01-w_reg-5.0-l2_reg-0
+parameter:seed-1286-time-20200518-190337-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.1-w_reg-10.0-l2_reg-0
+parameter:seed-1286-time-20200518-190337-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.01-w_reg-10.0-l2_reg-0
+parameter:seed-1286-time-20200518-190549-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.05-w_reg-1.0-l2_reg-0
+Final test accuracy: 0.8172470927238464
+Final test GAP RMS for gender: 0.12961141765117645
+Final test GAP RMS for race: 0.059605780988931656
+Final test balanced accuracy: 0.82587069272995
+
+
+parameter:seed-1286-time-20200518-190546-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.01-w_reg-0.5-l2_reg-0
+Final test accuracy: 0.8100607991218567
+Final test GAP RMS for gender: 0.1348753273487091
+Final test GAP RMS for race: 0.06387480348348618
+Final test balanced accuracy: 0.8263709545135498
+
+
+parameter:seed-1286-time-20200518-190547-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.05-w_reg-0.5-l2_reg-0
+Final test accuracy: 0.8120508790016174
+Final test GAP RMS for gender: 0.13661743700504303
+Final test GAP RMS for race: 0.06203952431678772
+Final test balanced accuracy: 0.8270682096481323
+
+
+parameter:seed-1286-time-20200518-190549-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.1-w_reg-1.0-l2_reg-0
+Final test accuracy: 0.8143725991249084
+Final test GAP RMS for gender: 0.13688334822654724
+Final test GAP RMS for race: 0.06080292537808418
+Final test balanced accuracy: 0.8267499208450317
+
+
+parameter:seed-1286-time-20200518-190546-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.05-w_reg-0.5-l2_reg-0
+Final test accuracy: 0.8122719526290894
+Final test GAP RMS for gender: 0.135761559009552
+Final test GAP RMS for race: 0.06286967545747757
+Final test balanced accuracy: 0.8269056081771851
+
+
+parameter:seed-1286-time-20200518-190547-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.1-w_reg-0.5-l2_reg-0
+Final test accuracy: 0.8131564259529114
+Final test GAP RMS for gender: 0.1338799148797989
+Final test GAP RMS for race: 0.06195812299847603
+Final test balanced accuracy: 0.8264095783233643
+
+
+parameter:seed-1286-time-20200518-190549-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.01-w_reg-0.5-l2_reg-0
+Final test accuracy: 0.8099502325057983
+Final test GAP RMS for gender: 0.13655763864517212
+Final test GAP RMS for race: 0.06352738291025162
+Final test balanced accuracy: 0.8264522552490234
+
+
+parameter:seed-1286-time-20200518-190549-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.1-w_reg-1.0-l2_reg-0
+Final test accuracy: 0.8170259594917297
+Final test GAP RMS for gender: 0.13066083192825317
+Final test GAP RMS for race: 0.0600479356944561
+Final test balanced accuracy: 0.8264963030815125
+
+
+parameter:seed-1286-time-20200518-190546-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.01-w_reg-0.5-l2_reg-0
+Final test accuracy: 0.8103924989700317
+Final test GAP RMS for gender: 0.1348426640033722
+Final test GAP RMS for race: 0.0622963048517704
+Final test balanced accuracy: 0.8267444372177124
+
+
+parameter:seed-1286-time-20200518-190549-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.05-w_reg-0.5-l2_reg-0
+Final test accuracy: 0.8123825192451477
+Final test GAP RMS for gender: 0.13465192914009094
+Final test GAP RMS for race: 0.06231958791613579
+Final test balanced accuracy: 0.8266699910163879
+
+
+parameter:seed-1286-time-20200518-190547-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.1-w_reg-0.5-l2_reg-0
+Final test accuracy: 0.8118297457695007
+Final test GAP RMS for gender: 0.13456101715564728
+Final test GAP RMS for race: 0.06137659773230553
+Final test balanced accuracy: 0.8276938199996948
+
+
+parameter:seed-1286-time-20200518-190549-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.01-w_reg-1.0-l2_reg-0
+Final test accuracy: 0.8112769722938538
+Final test GAP RMS for gender: 0.12995348870754242
+Final test GAP RMS for race: 0.06026354804635048
+Final test balanced accuracy: 0.8253222703933716
+
+
+parameter:seed-1286-time-20200518-190546-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.01-w_reg-0.1-l2_reg-0
+Final test accuracy: 0.810171365737915
+Final test GAP RMS for gender: 0.13702794909477234
+Final test GAP RMS for race: 0.06338079273700714
+Final test balanced accuracy: 0.8273700475692749
+
+
+parameter:seed-1286-time-20200518-190546-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.1-w_reg-0.2-l2_reg-0
+Final test accuracy: 0.8114980459213257
+Final test GAP RMS for gender: 0.1369454264640808
+Final test GAP RMS for race: 0.0638575553894043
+Final test balanced accuracy: 0.8273204565048218
+
+
+parameter:seed-1286-time-20200518-190551-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.1-w_reg-0.5-l2_reg-0
+Final test accuracy: 0.810724139213562
+Final test GAP RMS for gender: 0.13646230101585388
+Final test GAP RMS for race: 0.06414353102445602
+Final test balanced accuracy: 0.8263461589813232
+
+
+parameter:seed-1286-time-20200518-190551-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.05-w_reg-0.5-l2_reg-0
+Final test accuracy: 0.8129353523254395
+Final test GAP RMS for gender: 0.13362668454647064
+Final test GAP RMS for race: 0.061641208827495575
+Final test balanced accuracy: 0.8264178037643433
+
+
+parameter:seed-1286-time-20200518-190546-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.05-w_reg-0.2-l2_reg-0
+Final test accuracy: 0.810171365737915
+Final test GAP RMS for gender: 0.13711950182914734
+Final test GAP RMS for race: 0.06338164210319519
+Final test balanced accuracy: 0.8261352777481079
+
+
+parameter:seed-1286-time-20200518-190546-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.01-w_reg-0.1-l2_reg-0
+Final test accuracy: 0.8099502325057983
+Final test GAP RMS for gender: 0.13656869530677795
+Final test GAP RMS for race: 0.06229027733206749
+Final test balanced accuracy: 0.8273782730102539
+
+
+parameter:seed-1286-time-20200518-190551-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.01-w_reg-0.5-l2_reg-0
+Final test accuracy: 0.8100607991218567
+Final test GAP RMS for gender: 0.13545440137386322
+Final test GAP RMS for race: 0.06319990754127502
+Final test balanced accuracy: 0.8263709545135498
+
+
+parameter:seed-1286-time-20200518-190555-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.01-w_reg-10.0-l2_reg-0
+Final test accuracy: 0.8379215002059937
+Final test GAP RMS for gender: 0.07872942090034485
+Final test GAP RMS for race: 0.04368903487920761
+Final test balanced accuracy: 0.8061907291412354
+
+
+parameter:seed-1286-time-20200518-190555-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.05-w_reg-10.0-l2_reg-0
+Final test accuracy: 0.836263120174408
+Final test GAP RMS for gender: 0.09863831102848053
+Final test GAP RMS for race: 0.04505759850144386
+Final test balanced accuracy: 0.8135839104652405
+
+
+parameter:seed-1286-time-20200518-190555-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.1-w_reg-10.0-l2_reg-0
+Final test accuracy: 0.8485351204872131
+Final test GAP RMS for gender: 0.054235491901636124
+Final test GAP RMS for race: 0.029004327952861786
+Final test balanced accuracy: 0.7786297798156738
+
+
+parameter:seed-1286-time-20200518-190555-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.05-w_reg-10.0-l2_reg-0
+Final test accuracy: 0.842343807220459
+Final test GAP RMS for gender: 0.09520317614078522
+Final test GAP RMS for race: 0.051709454506635666
+Final test balanced accuracy: 0.80062335729599
+
+
+parameter:seed-1286-time-20200518-190552-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.1-w_reg-1.0-l2_reg-0
+Final test accuracy: 0.8173576593399048
+Final test GAP RMS for gender: 0.12970350682735443
+Final test GAP RMS for race: 0.05967656150460243
+Final test balanced accuracy: 0.8260980844497681
+
+
+parameter:seed-1286-time-20200518-190552-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.05-w_reg-1.0-l2_reg-0
+Final test accuracy: 0.8143725991249084
+Final test GAP RMS for gender: 0.13419833779335022
+Final test GAP RMS for race: 0.06203748658299446
+Final test balanced accuracy: 0.8258238434791565
+
+
+parameter:seed-1286-time-20200518-190552-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.1-w_reg-5.0-l2_reg-0
+Final test accuracy: 0.8352680802345276
+Final test GAP RMS for gender: 0.09760772436857224
+Final test GAP RMS for race: 0.0524723194539547
+Final test balanced accuracy: 0.813080906867981
+
+
+parameter:seed-1286-time-20200518-190546-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.1-w_reg-0.1-l2_reg-0
+Final test accuracy: 0.8102819323539734
+Final test GAP RMS for gender: 0.13745178282260895
+Final test GAP RMS for race: 0.06306275725364685
+Final test balanced accuracy: 0.8272887468338013
+
+
+parameter:seed-1286-time-20200518-190551-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.05-w_reg-0.2-l2_reg-0
+Final test accuracy: 0.810724139213562
+Final test GAP RMS for gender: 0.13667210936546326
+Final test GAP RMS for race: 0.06353568285703659
+Final test balanced accuracy: 0.8271178603172302
+
+
+parameter:seed-1286-time-20200518-190551-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.1-w_reg-0.5-l2_reg-0
+Final test accuracy: 0.812493085861206
+Final test GAP RMS for gender: 0.13497567176818848
+Final test GAP RMS for race: 0.06059427559375763
+Final test balanced accuracy: 0.8261256217956543
+
+
+
+
+
+parameter:seed-1286-time-20200518-190552-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.01-w_reg-1.0-l2_reg-0
+Final test accuracy: 0.8112769722938538
+Final test GAP RMS for gender: 0.12933555245399475
+Final test GAP RMS for race: 0.06103464215993881
+Final test balanced accuracy: 0.8253222703933716
+
+
+parameter:seed-1286-time-20200518-190552-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.05-w_reg-1.0-l2_reg-0
+Final test accuracy: 0.8170259594917297
+Final test GAP RMS for gender: 0.13127635419368744
+Final test GAP RMS for race: 0.05899328365921974
+Final test balanced accuracy: 0.8274223804473877
+
+
+parameter:seed-1286-time-20200518-190551-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.01-w_reg-0.2-l2_reg-0
+Final test accuracy: 0.8097291588783264
+Final test GAP RMS for gender: 0.1368405818939209
+Final test GAP RMS for race: 0.0623263344168663
+Final test balanced accuracy: 0.8270778656005859
+
+
+parameter:seed-1286-time-20200518-190551-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.01-w_reg-0.2-l2_reg-0
+Final test accuracy: 0.8103924989700317
+Final test GAP RMS for gender: 0.1356601119041443
+Final test GAP RMS for race: 0.062377285212278366
+Final test balanced accuracy: 0.8275160789489746
+
+
+parameter:seed-1286-time-20200518-190551-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.01-w_reg-0.2-l2_reg-0
+Final test accuracy: 0.8099502325057983
+Final test GAP RMS for gender: 0.13589510321617126
+Final test GAP RMS for race: 0.06285344064235687
+Final test balanced accuracy: 0.8272240161895752
+
+
+parameter:seed-1286-time-20200518-190551-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.1-w_reg-0.2-l2_reg-0
+Final test accuracy: 0.8106135725975037
+Final test GAP RMS for gender: 0.1367051601409912
+Final test GAP RMS for race: 0.06250732392072678
+Final test balanced accuracy: 0.8273534774780273
+
+
+parameter:seed-1286-time-20200518-190551-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.05-w_reg-0.2-l2_reg-0
+Final test accuracy: 0.8108347058296204
+Final test GAP RMS for gender: 0.13750389218330383
+Final test GAP RMS for race: 0.06303475797176361
+Final test balanced accuracy: 0.8268822431564331
+
+
+parameter:seed-1286-time-20200518-190546-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.05-w_reg-0.1-l2_reg-0
+Final test accuracy: 0.8103924989700317
+Final test GAP RMS for gender: 0.13712161779403687
+Final test GAP RMS for race: 0.06314259022474289
+Final test balanced accuracy: 0.8275160789489746
+
+
+parameter:seed-1286-time-20200518-190555-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.05-w_reg-5.0-l2_reg-0
+Final test accuracy: 0.8350470066070557
+Final test GAP RMS for gender: 0.10128720849752426
+Final test GAP RMS for race: 0.05898434296250343
+Final test balanced accuracy: 0.812471866607666
+
+
+parameter:seed-1286-time-20200518-190552-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.1-w_reg-1.0-l2_reg-0
+Final test accuracy: 0.8141514658927917
+Final test GAP RMS for gender: 0.13057754933834076
+Final test GAP RMS for race: 0.06025867909193039
+Final test balanced accuracy: 0.8266038298606873
+
+
+parameter:seed-1286-time-20200518-190552-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.05-w_reg-5.0-l2_reg-0
+Final test accuracy: 0.8367053866386414
+Final test GAP RMS for gender: 0.09776041656732559
+Final test GAP RMS for race: 0.05072956532239914
+Final test balanced accuracy: 0.812023937702179
+
+
+
+parameter:seed-1286-time-20200518-190552-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.01-w_reg-1.0-l2_reg-0
+Final test accuracy: 0.8114980459213257
+Final test GAP RMS for gender: 0.13060595095157623
+Final test GAP RMS for race: 0.06304824352264404
+Final test balanced accuracy: 0.8259313106536865
+
+
+parameter:seed-1286-time-20200518-190555-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.05-w_reg-5.0-l2_reg-0
+Final test accuracy: 0.8336097002029419
+Final test GAP RMS for gender: 0.10463542491197586
+Final test GAP RMS for race: 0.0501050129532814
+Final test balanced accuracy: 0.8121397495269775
+
+
+parameter:seed-1286-time-20200518-190555-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.01-w_reg-5.0-l2_reg-0
+Final test accuracy: 0.8217799663543701
+Final test GAP RMS for gender: 0.10125133395195007
+Final test GAP RMS for race: 0.061615221202373505
+Final test balanced accuracy: 0.8196046352386475
+
+
+parameter:seed-1286-time-20200518-190555-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.05-w_reg-10.0-l2_reg-0
+Final test accuracy: 0.8359314799308777
+Final test GAP RMS for gender: 0.10534012317657471
+Final test GAP RMS for race: 0.050499364733695984
+Final test balanced accuracy: 0.8149082064628601
+
+
+parameter:seed-1286-time-20200518-190555-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.1-w_reg-10.0-l2_reg-0
+Final test accuracy: 0.8372581601142883
+Final test GAP RMS for gender: 0.08669553697109222
+Final test GAP RMS for race: 0.051638178527355194
+Final test balanced accuracy: 0.8110000491142273
+
+
+parameter:seed-1286-time-20200518-190555-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.1-w_reg-10.0-l2_reg-0
+Final test accuracy: 0.8407959938049316
+Final test GAP RMS for gender: 0.08263795077800751
+Final test GAP RMS for race: 0.050003957003355026
+Final test balanced accuracy: 0.8045397996902466
+
+
+parameter:seed-1286-time-20200518-190555-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.01-w_reg-5.0-l2_reg-0
+Final test accuracy: 0.8215588927268982
+Final test GAP RMS for gender: 0.1039460301399231
+Final test GAP RMS for race: 0.06260987371206284
+Final test balanced accuracy: 0.819921612739563
+
+
+parameter:seed-1286-time-20200518-190555-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.01-w_reg-5.0-l2_reg-0
+Final test accuracy: 0.8231067061424255
+Final test GAP RMS for gender: 0.10117453336715698
+Final test GAP RMS for race: 0.06088403984904289
+Final test balanced accuracy: 0.8198637366294861
+
+
+parameter:seed-1286-time-20200518-190555-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.1-w_reg-5.0-l2_reg-0
+Final test accuracy: 0.834825873374939
+Final test GAP RMS for gender: 0.0870656669139862
+Final test GAP RMS for race: 0.04295782372355461
+Final test balanced accuracy: 0.8049173951148987
+
+
+parameter:seed-1286-time-20200518-190555-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.01-w_reg-10.0-l2_reg-0
+Final test accuracy: 0.8390271067619324
+Final test GAP RMS for gender: 0.07850804924964905
+Final test GAP RMS for race: 0.04419281706213951
+Final test balanced accuracy: 0.8046059608459473
+
+
+parameter:seed-1286-time-20200518-190555-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.01-w_reg-10.0-l2_reg-0
+Final test accuracy: 0.8391376733779907
+Final test GAP RMS for gender: 0.07564930617809296
+Final test GAP RMS for race: 0.04951922595500946
+Final test balanced accuracy: 0.8008204698562622
+
+
+parameter:seed-1286-time-20200518-190555-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.1-w_reg-5.0-l2_reg-0
+Final test accuracy: 0.8363736867904663
+Final test GAP RMS for gender: 0.09867957979440689
+Final test GAP RMS for race: 0.05464297905564308
+Final test balanced accuracy: 0.8118048310279846
+
+
+parameter:seed-1286-time-20200518-190552-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.05-w_reg-1.0-l2_reg-0
+Final test accuracy: 0.8169154524803162
+Final test GAP RMS for gender: 0.13175053894519806
+Final test GAP RMS for race: 0.06180351972579956
+Final test balanced accuracy: 0.8268862962722778
+
+
+parameter:seed-1286-time-20200518-190552-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.01-w_reg-5.0-l2_reg-0
+Final test accuracy: 0.8217799663543701
+Final test GAP RMS for gender: 0.10076235234737396
+Final test GAP RMS for race: 0.06272611767053604
+Final test balanced accuracy: 0.8206850290298462
+
+
+parameter:seed-1286-time-20200518-190552-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.01-w_reg-1.0-l2_reg-0
+Final test accuracy: 0.8108347058296204
+Final test GAP RMS for gender: 0.1303531378507614
+Final test GAP RMS for race: 0.05978330969810486
+Final test balanced accuracy: 0.8248758316040039
+
+
+parameter:seed-1286-time-20200518-190546-expt_id-984145-lr-0.0001-wlr-0.0005-epsilon-0.05-w_reg-0.1-l2_reg-0
+Final test accuracy: 0.8106135725975037
+Final test GAP RMS for gender: 0.1366790533065796
+Final test GAP RMS for race: 0.06330789625644684
+Final test balanced accuracy: 0.8279708623886108
+
+
+parameter:seed-1286-time-20200518-190546-expt_id-984145-lr-0.0001-wlr-0.0001-epsilon-0.01-w_reg-0.1-l2_reg-0
+Final test accuracy: 0.8100607991218567
+Final test GAP RMS for gender: 0.13735799491405487
+Final test GAP RMS for race: 0.06406818330287933
+Final test balanced accuracy: 0.8271426558494568
+
+
+parameter:seed-1286-time-20200518-190547-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.1-w_reg-0.2-l2_reg-0
+Final test accuracy: 0.8103924989700317
+Final test GAP RMS for gender: 0.13768112659454346
+Final test GAP RMS for race: 0.06634124368429184
+Final test balanced accuracy: 0.8272074460983276
+
+
+parameter:seed-1286-time-20200518-190546-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.1-w_reg-0.1-l2_reg-0
+Final test accuracy: 0.810724139213562
+Final test GAP RMS for gender: 0.13718931376934052
+Final test GAP RMS for race: 0.064156174659729
+Final test balanced accuracy: 0.8281981945037842
+
+
+parameter:seed-1286-time-20200518-190547-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.05-w_reg-0.2-l2_reg-0
+Final test accuracy: 0.8102819323539734
+Final test GAP RMS for gender: 0.13664725422859192
+Final test GAP RMS for race: 0.06469254195690155
+Final test balanced accuracy: 0.8266713619232178
+
+
+parameter:seed-1286-time-20200518-190546-expt_id-984145-lr-0.0001-wlr-0.005-epsilon-0.05-w_reg-0.1-l2_reg-0
+Final test accuracy: 0.810724139213562
+Final test GAP RMS for gender: 0.13668635487556458
+Final test GAP RMS for race: 0.06298644095659256
+Final test balanced accuracy: 0.8278895616531372
+
+
+parameter:seed-1286-time-20200518-190547-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.01-w_reg-0.2-l2_reg-0
+Final test accuracy: 0.8100607991218567
+Final test GAP RMS for gender: 0.13615375757217407
+Final test GAP RMS for race: 0.06349991261959076
+Final test balanced accuracy: 0.8272969722747803
+
+
+parameter:seed-1286-time-20200518-190546-expt_id-984145-lr-0.0001-wlr-0.001-epsilon-0.1-w_reg-0.1-l2_reg-0
+Final test accuracy: 0.8105030655860901
+Final test GAP RMS for gender: 0.13701537251472473
+Final test GAP RMS for race: 0.06322430819272995
+Final test balanced accuracy: 0.8277434706687927
+
+

@@ -1,0 +1,678 @@
+classifier_architecture=[100, 100, 50, 2], potential_architecture=[50, 20, 1]
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 1e-06, 'w_reg': 40.0}
+Final test accuracy: 0.8192371726036072
+Final test GAP RMS for gender: 0.1180412620306015
+Final test GAP RMS for race: 0.07208741456270218
+Final test balanced accuracy: 0.822863757610321
+
+
+{'epsilon': 0.0001, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 50.0}
+Final test accuracy: 0.8071863055229187
+Final test GAP RMS for gender: 0.07753169536590576
+Final test GAP RMS for race: 0.04071720689535141
+Final test balanced accuracy: 0.8017839193344116
+
+
+{'epsilon': 0.1, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 40.0}
+Final test accuracy: 0.8355997800827026
+Final test GAP RMS for gender: 0.011883496306836605
+Final test GAP RMS for race: 0.011875318363308907
+Final test balanced accuracy: 0.6865862607955933
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 60.0}
+Final test accuracy: 0.806633472442627
+Final test GAP RMS for gender: 0.08105354011058807
+Final test GAP RMS for race: 0.04886636137962341
+Final test balanced accuracy: 0.805122971534729
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 50.0}
+Final test accuracy: 0.8082918524742126
+Final test GAP RMS for gender: 0.07425633817911148
+Final test GAP RMS for race: 0.04846726730465889
+Final test balanced accuracy: 0.803903341293335
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 20.0}
+Final test accuracy: 0.813930332660675
+Final test GAP RMS for gender: 0.07603266090154648
+Final test GAP RMS for race: 0.0529058538377285
+Final test balanced accuracy: 0.8107150197029114
+
+
+{'epsilon': 0.1, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 10.0}
+Final test accuracy: 0.8499723672866821
+Final test GAP RMS for gender: 0.06505662202835083
+Final test GAP RMS for race: 0.043518390506505966
+Final test balanced accuracy: 0.793624222278595
+
+
+{'epsilon': 0.0001, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 20.0}
+Final test accuracy: 0.8142620325088501
+Final test GAP RMS for gender: 0.07807811349630356
+Final test GAP RMS for race: 0.05342897027730942
+Final test balanced accuracy: 0.8101624250411987
+
+
+{'epsilon': 0.1, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 10.0}
+Final test accuracy: 0.8161414861679077
+Final test GAP RMS for gender: 0.08202207833528519
+Final test GAP RMS for race: 0.05639742687344551
+Final test balanced accuracy: 0.8101692199707031
+
+
+{'epsilon': 0.01, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 20.0}
+Final test accuracy: 0.8520729541778564
+Final test GAP RMS for gender: 0.05670592561364174
+Final test GAP RMS for race: 0.0490427128970623
+Final test balanced accuracy: 0.7863688468933105
+
+
+{'epsilon': 0.01, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 40.0}
+Final test accuracy: 0.8485351204872131
+Final test GAP RMS for gender: 0.06371095776557922
+Final test GAP RMS for race: 0.03997556492686272
+Final test balanced accuracy: 0.7883532047271729
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 40.0}
+Final test accuracy: 0.8262023329734802
+Final test GAP RMS for gender: 0.07997748255729675
+Final test GAP RMS for race: 0.05257532745599747
+Final test balanced accuracy: 0.796905517578125
+
+
+{'epsilon': 0.0001, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 50.0}
+Final test accuracy: 0.8045328855514526
+Final test GAP RMS for gender: 0.06537312269210815
+Final test GAP RMS for race: 0.049051616340875626
+Final test balanced accuracy: 0.8006484508514404
+
+
+{'epsilon': 0.01, 'lr': 0.0001, 'wlr': 1e-06, 'w_reg': 60.0}
+Final test accuracy: 0.8527362942695618
+Final test GAP RMS for gender: 0.036920368671417236
+Final test GAP RMS for race: 0.026013514026999474
+Final test balanced accuracy: 0.7543954849243164
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 1e-06, 'w_reg': 60.0}
+Final test accuracy: 0.8172470927238464
+Final test GAP RMS for gender: 0.12055877596139908
+Final test GAP RMS for race: 0.07558039575815201
+Final test balanced accuracy: 0.8184623718261719
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 20.0}
+Final test accuracy: 0.8191266059875488
+Final test GAP RMS for gender: 0.07420238852500916
+Final test GAP RMS for race: 0.052049051970243454
+Final test balanced accuracy: 0.8081283569335938
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 1e-06, 'w_reg': 50.0}
+Final test accuracy: 0.8184632658958435
+Final test GAP RMS for gender: 0.11786486953496933
+Final test GAP RMS for race: 0.07367851585149765
+Final test balanced accuracy: 0.8206547498703003
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 50.0}
+Final test accuracy: 0.8015478253364563
+Final test GAP RMS for gender: 0.06255092471837997
+Final test GAP RMS for race: 0.0526510551571846
+Final test balanced accuracy: 0.8031524419784546
+
+
+{'epsilon': 0.1, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 60.0}
+Final test accuracy: 0.8043117523193359
+Final test GAP RMS for gender: 0.055401820689439774
+Final test GAP RMS for race: 0.004934034310281277
+Final test balanced accuracy: 0.6027919054031372
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 30.0}
+Final test accuracy: 0.8085129857063293
+Final test GAP RMS for gender: 0.07174360007047653
+Final test GAP RMS for race: 0.05525830388069153
+Final test balanced accuracy: 0.8083709478378296
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 60.0}
+Final test accuracy: 0.845550000667572
+Final test GAP RMS for gender: 0.08066220581531525
+Final test GAP RMS for race: 0.030355488881468773
+Final test balanced accuracy: 0.7791272401809692
+
+
+'epsilon': 0.01, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 30.0}
+Final test accuracy: 0.8444444537162781
+Final test GAP RMS for gender: 0.03533071279525757
+Final test GAP RMS for race: 0.008291787467896938
+Final test balanced accuracy: 0.7086349129676819
+
+
+{'epsilon': 0.01, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 50.0}
+Final test accuracy: 0.8156992793083191
+Final test GAP RMS for gender: 0.03679670765995979
+Final test GAP RMS for race: 0.005470961332321167
+Final test balanced accuracy: 0.6297614574432373
+
+
+{'epsilon': 0.1, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 50.0}
+Final test accuracy: 0.8133775591850281
+Final test GAP RMS for gender: 0.04319379851222038
+Final test GAP RMS for race: 0.004194581415504217
+Final test balanced accuracy: 0.6245235800743103
+
+
+{'epsilon': 0.0001, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 30.0}
+Final test accuracy: 0.8096185922622681
+Final test GAP RMS for gender: 0.07111311703920364
+Final test GAP RMS for race: 0.052262961864471436
+Final test balanced accuracy: 0.8055515289306641
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 30.0}
+Final test accuracy: 0.8236594796180725
+Final test GAP RMS for gender: 0.07776036858558655
+Final test GAP RMS for race: 0.05584289878606796
+Final test balanced accuracy: 0.8029427528381348
+
+
+{'epsilon': 0.0001, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 40.0}
+Final test accuracy: 0.809286892414093
+Final test GAP RMS for gender: 0.07217328250408173
+Final test GAP RMS for race: 0.04840637370944023
+Final test balanced accuracy: 0.8033259510993958
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 20.0}
+Final test accuracy: 0.8140408992767334
+Final test GAP RMS for gender: 0.0786254033446312
+Final test GAP RMS for race: 0.05369940772652626
+Final test balanced accuracy: 0.8127944469451904
+
+
+{'epsilon': 0.01, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 40.0}
+Final test accuracy: 0.8234383463859558
+Final test GAP RMS for gender: 0.035167109221220016
+Final test GAP RMS for race: 0.00642803031951189
+Final test balanced accuracy: 0.6484559774398804
+
+
+{'epsilon': 0.0001, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 60.0}
+Final test accuracy: 0.810724139213562
+Final test GAP RMS for gender: 0.06729280948638916
+Final test GAP RMS for race: 0.056838858872652054
+Final test balanced accuracy: 0.8027320504188538
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 20.0}
+Final test accuracy: 0.8123825192451477
+Final test GAP RMS for gender: 0.07556378841400146
+Final test GAP RMS for race: 0.05591432750225067
+Final test balanced accuracy: 0.8110815286636353
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 40.0}
+Final test accuracy: 0.8099502325057983
+Final test GAP RMS for gender: 0.07602981477975845
+Final test GAP RMS for race: 0.04826361685991287
+Final test balanced accuracy: 0.8071596622467041
+
+
+{'epsilon': 0.01, 'lr': 0.0001, 'wlr': 1e-06, 'w_reg': 20.0}
+Final test accuracy: 0.8388059735298157
+Final test GAP RMS for gender: 0.09099416434764862
+Final test GAP RMS for race: 0.06292475014925003
+Final test balanced accuracy: 0.8066205978393555
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 40.0}
+Final test accuracy: 0.8360419869422913
+Final test GAP RMS for gender: 0.0739932730793953
+Final test GAP RMS for race: 0.04088178277015686
+Final test balanced accuracy: 0.7942996025085449
+
+
+{'epsilon': 0.0001, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 20.0}
+Final test accuracy: 0.813930332660675
+Final test GAP RMS for gender: 0.07712304592132568
+Final test GAP RMS for race: 0.05306239053606987
+Final test balanced accuracy: 0.8117953538894653
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 60.0}
+Final test accuracy: 0.844997227191925
+Final test GAP RMS for gender: 0.09212920814752579
+Final test GAP RMS for race: 0.03519241511821747
+Final test balanced accuracy: 0.7775273323059082
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 1e-06, 'w_reg': 20.0}
+Final test accuracy: 0.8302929997444153
+Final test GAP RMS for gender: 0.08915014564990997
+Final test GAP RMS for race: 0.055413439869880676
+Final test balanced accuracy: 0.8181287050247192
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 20.0}
+Final test accuracy: 0.8207849860191345
+Final test GAP RMS for gender: 0.0716884583234787
+Final test GAP RMS for race: 0.05259924754500389
+Final test balanced accuracy: 0.8076804876327515
+
+
+{'epsilon': 0.01, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 20.0}
+Final test accuracy: 0.8522940874099731
+Final test GAP RMS for gender: 0.05563626438379288
+Final test GAP RMS for race: 0.031213538721203804
+Final test balanced accuracy: 0.773858904838562
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 40.0}
+Final test accuracy: 0.805196225643158
+Final test GAP RMS for gender: 0.06553617864847183
+Final test GAP RMS for race: 0.05109719932079315
+Final test balanced accuracy: 0.8064886331558228
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 40.0}
+Final test accuracy: 0.8347153067588806
+Final test GAP RMS for gender: 0.07399068772792816
+Final test GAP RMS for race: 0.04353772848844528
+Final test balanced accuracy: 0.7941948771476746
+
+
+{'epsilon': 0.1, 'lr': 0.0001, 'wlr': 1e-06, 'w_reg': 40.0}
+Final test accuracy: 0.7601990103721619
+Final test GAP RMS for gender: 0.003999532666057348
+Final test GAP RMS for race: 0.00436977855861187
+Final test balanced accuracy: 0.5069755911827087
+
+
+{'epsilon': 0.01, 'lr': 0.0001, 'wlr': 1e-06, 'w_reg': 40.0}
+Final test accuracy: 0.8515201807022095
+Final test GAP RMS for gender: 0.0578712597489357
+Final test GAP RMS for race: 0.04177505895495415
+Final test balanced accuracy: 0.7838428616523743
+
+
+{'epsilon': 0.01, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 60.0}
+Final test accuracy: 0.7860696315765381
+Final test GAP RMS for gender: 0.07580693066120148
+Final test GAP RMS for race: 0.03235601633787155
+Final test balanced accuracy: 0.5620337128639221
+
+
+{'epsilon': 0.0001, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 60.0}
+Final test accuracy: 0.807517945766449
+Final test GAP RMS for gender: 0.0760113075375557
+Final test GAP RMS for race: 0.04389657825231552
+Final test balanced accuracy: 0.7992249131202698
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 30.0}
+Final test accuracy: 0.8213377594947815
+Final test GAP RMS for gender: 0.08133269101381302
+Final test GAP RMS for race: 0.044464096426963806
+Final test balanced accuracy: 0.8023350238800049
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 60.0}
+Final test accuracy: 0.8354892134666443
+Final test GAP RMS for gender: 0.09138785302639008
+Final test GAP RMS for race: 0.03434617072343826
+Final test balanced accuracy: 0.788069486618042
+
+{{'epsilon': 0.01, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 60.0}
+Final test accuracy: 0.8511884808540344
+Final test GAP RMS for gender: 0.043780211359262466
+Final test GAP RMS for race: 0.028695538640022278
+Final test balanced accuracy: 0.7663376331329346
+{'epsilon': 0.0001, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 30.0}
+Final test accuracy: 0.812161386013031
+Final test GAP RMS for gender: 0.07579066604375839
+Final test GAP RMS for race: 0.04439197853207588
+Final test balanced accuracy: 0.8073856830596924
+
+
+{'epsilon': 0.1, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 30.0}
+Final test accuracy: 0.30469873547554016
+Final test GAP RMS for gender: 0.033993013203144073
+Final test GAP RMS for race: 0.009194457903504372
+Final test balanced accuracy: 0.5385199189186096
+
+
+{'epsilon': 0.01, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 30.0}
+Final test accuracy: 0.8239911794662476
+Final test GAP RMS for gender: 0.09839511662721634
+Final test GAP RMS for race: 0.05245133861899376
+Final test balanced accuracy: 0.8204480409622192
+
+
+{'epsilon': 0.01, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 40.0}
+Final test accuracy: 0.8379215002059937
+Final test GAP RMS for gender: 0.016727540642023087
+Final test GAP RMS for race: 0.009754707105457783
+Final test balanced accuracy: 0.6888917684555054
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 1e-06, 'w_reg': 50.0}
+Final test accuracy: 0.842343807220459
+Final test GAP RMS for gender: 0.06885848194360733
+Final test GAP RMS for race: 0.04625977948307991
+Final test balanced accuracy: 0.7929062843322754
+
+
+{'epsilon': 0.0001, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 50.0}
+Final test accuracy: 0.8110558390617371
+Final test GAP RMS for gender: 0.07308266311883926
+Final test GAP RMS for race: 0.05639852210879326
+Final test balanced accuracy: 0.8049575686454773
+
+
+{'epsilon': 0.0001, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 40.0}
+Final test accuracy: 0.808402419090271
+Final test GAP RMS for gender: 0.06835245341062546
+Final test GAP RMS for race: 0.05101780220866203
+Final test balanced accuracy: 0.8028960227966309
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 10.0}
+Final test accuracy: 0.8189054727554321
+Final test GAP RMS for gender: 0.08266076445579529
+Final test GAP RMS for race: 0.054205331951379776
+Final test balanced accuracy: 0.8143103122711182
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 50.0}
+Final test accuracy: 0.8063018321990967
+Final test GAP RMS for gender: 0.07789307832717896
+Final test GAP RMS for race: 0.04054761677980423
+Final test balanced accuracy: 0.8041321039199829
+
+
+{'epsilon': 0.1, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 20.0}
+Final test accuracy: 0.8475400805473328
+Final test GAP RMS for gender: 0.0678725317120552
+Final test GAP RMS for race: 0.0380515530705452
+Final test balanced accuracy: 0.7923261523246765
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 20.0}
+Final test accuracy: 0.8123825192451477
+Final test GAP RMS for gender: 0.08075211942195892
+Final test GAP RMS for race: 0.055529721081256866
+Final test balanced accuracy: 0.8124706149101257
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 50.0}
+Final test accuracy: 0.8355997800827026
+Final test GAP RMS for gender: 0.09122592955827713
+Final test GAP RMS for race: 0.03917752206325531
+Final test balanced accuracy: 0.7893772125244141
+
+
+{'epsilon': 0.0001, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 50.0}
+Final test accuracy: 0.808402419090271
+Final test GAP RMS for gender: 0.06984143704175949
+Final test GAP RMS for race: 0.045716430991888046
+Final test balanced accuracy: 0.8024330139160156
+
+
+silon': 0.01, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 50.0}
+Final test accuracy: 0.807517945766449
+Final test GAP RMS for gender: 0.0731494203209877
+Final test GAP RMS for race: 0.0011119773844256997
+Final test balanced accuracy: 0.6104662418365479
+
+
+{'epsilon': 0.1, 'lr': 0.0001, 'wlr': 1e-06, 'w_reg': 50.0}
+Final test accuracy: 0.7568822503089905
+Final test GAP RMS for gender: 0.0
+Final test GAP RMS for race: 0.0
+Final test balanced accuracy: 0.5
+
+
+{'epsilon': 0.0001, 'lr': 0.0001, 'wlr': 1e-06, 'w_reg': 50.0}
+Final test accuracy: 0.8277501463890076
+Final test GAP RMS for gender: 0.07654765248298645
+Final test GAP RMS for race: 0.057447031140327454
+Final test balanced accuracy: 0.8099665641784668
+
+
+{'epsilon': 0.1, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 30.0}
+Final test accuracy: 0.8505251407623291
+Final test GAP RMS for gender: 0.04494969919323921
+Final test GAP RMS for race: 0.02482278272509575
+Final test balanced accuracy: 0.7672884464263916
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 50.0}
+Final test acccuracy: 0.8108347058296204
+Final test GAP RMS for gender: 0.0707758441567421
+Final test GAP RMS for race: 0.05740993842482567
+Final test balanced accuracy: 0.8066635727882385
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 30.0}
+Final test accuracy: 0.810724139213562
+Final test GAP RMS for gender: 0.07523901015520096
+Final test GAP RMS for race: 0.053247079253196716
+Final test balanced accuracy: 0.811375081539154
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 30.0}
+Final test accuracy: 0.8264234662055969
+Final test GAP RMS for gender: 0.07155202329158783
+Final test GAP RMS for race: 0.05514838919043541
+Final test balanced accuracy: 0.8018361330032349
+
+
+{'epsilon': 0.01, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 30.0}
+Final test accuracy: 0.8487561941146851
+Final test GAP RMS for gender: 0.042439259588718414
+Final test GAP RMS for race: 0.014341634698212147
+Final test balanced accuracy: 0.7329366207122803
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 10.0}
+Final test accuracy: 0.8189054727554321
+Final test GAP RMS for gender: 0.08707011491060257
+Final test GAP RMS for race: 0.05763409659266472
+Final test balanced accuracy: 0.819249153137207
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 1e-06, 'w_reg': 10.0}
+Final test accuracy: 0.8183526992797852
+Final test GAP RMS for gender: 0.1282346397638321
+Final test GAP RMS for race: 0.06383074074983597
+Final test balanced accuracy: 0.8269097208976746
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 1e-06, 'w_reg': 20.0}
+Final test accuracy: 0.8193476796150208
+Final test GAP RMS for gender: 0.12078837305307388
+Final test GAP RMS for race: 0.06555616855621338
+Final test balanced accuracy: 0.8257149457931519
+
+
+{'epsilon': 0.1, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 60.0}
+Final test accuracy: 0.7700387239456177
+Final test GAP RMS for gender: 0.15673910081386566
+Final test GAP RMS for race: 0.03938259929418564
+Final test balanced accuracy: 0.5299901962280273
+
+
+{'epsilon': 0.0001, 'lr': 0.0001, 'wlr': 1e-06, 'w_reg': 10.0}
+Final test accuracy: 0.8211166262626648
+Final test GAP RMS for gender: 0.11355026066303253
+Final test GAP RMS for race: 0.06076183170080185
+Final test balanced accuracy: 0.8241053819656372
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 40.0}
+Final test accuracy: 0.8296296000480652
+Final test GAP RMS for gender: 0.08631569892168045
+Final test GAP RMS for race: 0.03947284445166588
+Final test balanced accuracy: 0.7990152835845947
+
+
+{'epsilon': 0.01, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 40.0}
+Final test accuracy: 0.5188502073287964
+Final test GAP RMS for gender: 0.12484130263328552
+Final test GAP RMS for race: 0.059790246188640594
+Final test balanced accuracy: 0.6762852072715759
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 1e-06, 'w_reg': 30.0}
+Final test accuracy: 0.8204532861709595
+Final test GAP RMS for gender: 0.11647365987300873
+Final test GAP RMS for race: 0.06371921300888062
+Final test balanced accuracy: 0.8255192637443542
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 40.0}
+Final test accuracy: 0.8099502325057983
+Final test GAP RMS for gender: 0.07629039883613586
+Final test GAP RMS for race: 0.04480474069714546
+Final test balanced accuracy: 0.8077770471572876
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 1e-06, 'w_reg': 10.0}
+Final test accuracy: 0.8248755931854248
+Final test GAP RMS for gender: 0.10691904276609421
+Final test GAP RMS for race: 0.061606451869010925
+Final test balanced accuracy: 0.8230386972427368
+
+
+{'epsilon': 0.0001, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 40.0}
+Final test accuracy: 0.8085129857063293
+Final test GAP RMS for gender: 0.08267375826835632
+Final test GAP RMS for race: 0.045908018946647644
+Final test balanced accuracy: 0.8020430207252502
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 60.0}
+Final test accuracy: 0.8489773273468018
+Final test GAP RMS for gender: 0.09502072632312775
+Final test GAP RMS for race: 0.016612805426120758
+Final test balanced accuracy: 0.7560794353485107
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 10.0}
+Final test accuracy: 0.8202321529388428
+Final test GAP RMS for gender: 0.08141535520553589
+Final test GAP RMS for race: 0.052962664514780045
+Final test balanced accuracy: 0.8158040642738342
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 10.0}
+Final test accuracy: 0.8215588927268982
+Final test GAP RMS for gender: 0.08171877264976501
+Final test GAP RMS for race: 0.055351223796606064
+Final test balanced accuracy: 0.8169891834259033
+
+
+{'epsilon': 0.1, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 40.0}
+Final test accuracy: 0.6940851211547852
+Final test GAP RMS for gender: 0.5460492968559265
+Final test GAP RMS for race: 0.04527195543050766
+Final test balanced accuracy: 0.5457184314727783
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 50.0}
+Final test accuracy: 0.8368158936500549
+Final test GAP RMS for gender: 0.08900933712720871
+Final test GAP RMS for race: 0.039091337472200394
+Final test balanced accuracy: 0.7855503559112549
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 10.0}
+Final test accuracy: 0.8206744194030762
+Final test GAP RMS for gender: 0.08041299134492874
+Final test GAP RMS for race: 0.05420496687293053
+Final test balanced accuracy: 0.8162505626678467
+
+
+{'epsilon': 0.0001, 'lr': 0.0001, 'wlr': 5e-06, 'w_reg': 10.0}
+Final test accuracy: 0.8182421326637268
+Final test GAP RMS for gender: 0.08282103389501572
+Final test GAP RMS for race: 0.0576891154050827
+Final test balanced accuracy: 0.8178849220275879
+
+
+{'epsilon': 0.1, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 20.0}
+Final test accuracy: 0.7088999152183533
+Final test GAP RMS for gender: 0.0948275625705719
+Final test GAP RMS for race: 0.05613550543785095
+Final test balanced accuracy: 0.7836207747459412
+
+
+{'epsilon': 0.01, 'lr': 0.0001, 'wlr': 0.001, 'w_reg': 20.0}
+Final test accuracy: 0.8461028337478638
+Final test GAP RMS for gender: 0.06702665239572525
+Final test GAP RMS for race: 0.049711648374795914
+Final test balanced accuracy: 0.7969329357147217
+
+
+{'epsilon': 0.0001, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 10.0}
+Final test accuracy: 0.8181315660476685
+Final test GAP RMS for gender: 0.08126115053892136
+Final test GAP RMS for race: 0.058646682649850845
+Final test balanced accuracy: 0.8168858289718628
+
+
+{'epsilon': 1e-05, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 10.0}
+Final test accuracy: 0.8175787925720215
+Final test GAP RMS for gender: 0.08428460359573364
+Final test GAP RMS for race: 0.0579679049551487
+Final test balanced accuracy: 0.816983699798584
+
+
+{'epsilon': 0.0001, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 20.0}
+Final test accuracy: 0.8119403123855591
+Final test GAP RMS for gender: 0.07079936563968658
+Final test GAP RMS for race: 0.057965271174907684
+Final test balanced accuracy: 0.8089373111724854
+
+
+{'epsilon': 0.001, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 20.0}
+Final test accuracy: 0.8210060596466064
+Final test GAP RMS for gender: 0.07324057072401047
+Final test GAP RMS for race: 0.0565667487680912
+Final test balanced accuracy: 0.8095242977142334
+
+
+{'epsilon': 0.01, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 20.0}
+Final test accuracy: 0.8533996939659119
+Final test GAP RMS for gender: 0.04384128749370575
+Final test GAP RMS for race: 0.0260821133852005
+Final test balanced accuracy: 0.7591552734375
+
+
+{'epsilon': 0.01, 'lr': 0.0001, 'wlr': 0.0001, 'w_reg': 10.0}
+Final test accuracy: 0.843559980392456
+Final test GAP RMS for gender: 0.07106047868728638
+Final test GAP RMS for race: 0.04605250805616379
+Final test balanced accuracy: 0.8029701709747314
+
+
+{'epsilon': 0.1, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 20.0}
+Final test accuracy: 0.8516307473182678
+Final test GAP RMS for gender: 0.03542979806661606
+Final test GAP RMS for race: 0.02198095992207527
+Final test balanced accuracy: 0.7487262487411499
+
+
+{'epsilon': 0.01, 'lr': 0.0001, 'wlr': 1e-05, 'w_reg': 10.0}
+Final test accuracy: 0.8411276936531067
+Final test GAP RMS for gender: 0.07081509381532669
+Final test GAP RMS for race: 0.05782611295580864
+Final test balanced accuracy: 0.8044501543045044
+
+
