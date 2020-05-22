@@ -159,7 +159,7 @@ class unit_expt():
                     print(f'Test GAP RMS for {name} and step {step}: {gap_rms[i]}\n')
                 print(f'Test balanced accuracy for step {step}: {bal_accuracy}\n\n')
         accuracy, bal_acc, gap_rms = self.metrics(data_test, step, is_training=False)
-        result_dict = {'alpha': self.alpha, 'beta': self.beta, 'lambda': self.lambda_, 'accuracy': accuracy,\
+        result_dict = {'alpha': self.alpha, 'beta': self.beta, 'lr': self.learning_rate, 'lambda': self.lambda_, 'accuracy': accuracy,\
              'balanced accuracy': bal_acc}
         
         for i, name in enumerate(names):
