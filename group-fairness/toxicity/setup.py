@@ -8,10 +8,10 @@ import toxicity_model
 
 class GroupFairness():
 
-    def __init__(self, batch_size = 500, epoch = 1000, learning_rate = 1e-4, wasserstein_lr = 1e-5, \
+    def __init__(self, batch_size = 500, epoch = 100, learning_rate = 1e-4, wasserstein_lr = 1e-5, \
                         l2_regularizer = 0, wasserstein_regularizer = 1e-2, \
                             epsilon = 1e0, clip_grad = 40, seed = 1,\
-                                 wasserstein_regularization_type = 'L2', start_training = 500):
+                                 wasserstein_regularization_type = 'L2', start_training = 50):
 
         '''
         Class for enforcing group fairness in classifier
@@ -51,9 +51,10 @@ class GroupFairness():
             self.group_names = groups
 
     def set_graph(self, embedding_matrix,\
-         n_groups = 3, potential_architecture = [10, 1], potential_input_shape = (1,),\
+         potential_architecture = [10, 1], potential_input_shape = (1,),\
               activation = tf.nn.relu):
         self.protected_groups()
+        n_groups = len(self.group_names)
 
         if not n_groups > 1:
             raise ValueError('Number of groups must be an integer greater than or equal to 2')
@@ -403,13 +404,11 @@ class GroupFairness():
 
         return bal_accuracy
 
-    def metrics(self, data, training_data = True, step = 0, group_names = None):
+    def metrics(self, data, training_data = True, step = 0):
         
         # Training set
         x, y, group = data
-        n_feature = group.shape[1]
-        if group_names == None:
-            group_names = range(n_feature)
+        n_feature = len(self.group_names)
         logits = self.classifier(x)
         probabilities = utils.logit_to_probability(logits)
         probabilities = tf.reshape(probabilities[:, 1], shape = [-1, 1])
@@ -432,14 +431,40 @@ class GroupFairness():
         with self.train_summary_writer.as_default() if training_data else self.test_summary_writer.as_default():
             tf.summary.scalar('accuracy on full data', accuracy, step=step)
             tf.summary.scalar('balanced accuracy', bal_accuracy, step=step)
-            for i, name in enumerate(group_names):
+            for i, name in enumerate(self.group_names):
                 tf.summary.scalar(f'gap rms for {name}', gap_rms[i], step=step)
         return accuracy, bal_accuracy, gap_rms
 
     
     def fit(self, data_train, data_test):
         self.create_batch_data(data_train, data_test)
+
+
+        # Setting sensetive data stream
+        text_train, labels_train, groups_train = data_train
+        sensetive_indices_train = tf.reduce_sum(groups_train, axis= 1)>0
+        sen_data_train = text_train[sensetive_indices_train], labels_train[sensetive_indices_train], \
+            groups_train[sensetive_indices_train]
+
+        text_test, labels_test, groups_test = data_test
+        sensetive_indices_test = tf.reduce_sum(groups_test, axis= 1)>0
+        sen_data_test = text_test[sensetive_indices_test], labels_test[sensetive_indices_test],\
+         groups_test[sensetive_indices_test]
+
+        self.create_sensitive_batch_data(sen_data_train, sen_data_test)
+
         self.create_tensorboard()
+        # Creating part data test
+        x, y, g = data_test
+        
+        sensetive_indices_test = tf.reduce_sum(g, axis= 1)>0
+        xs, ys, gs = x[sensetive_indices_test], y[sensetive_indices_test], g[sensetive_indices_test]
+
+        part_data_test = tf.concat([x[:800,:], xs[:800, :]], axis = 0), tf.concat([y[:800,:], ys[:800, :]], axis = 0),\
+         tf.concat([g[:800,:], gs[:800, :]], axis = 0)
+
+
+
         for step, (batch_train_data, batch_test_data, batch_sensitive_train, batch_sensitive_test)\
              in enumerate(zip(self.batch_train_data, self.batch_test_data,\
                   self.batch_sensitive_train_data, self.batch_sensitive_test_data)):
@@ -464,8 +489,9 @@ class GroupFairness():
                 self.train_step(batch_train_data, step)
                 self.test_step(batch_test_data, step)
                 if step % 250 == 0:
-                    _ = self.metrics(data_train, step=step)
-                    accuracy, bal_accuracy, gap_rms = self.metrics(data_test, False, step)
+                    
+                    #_ = self.metrics(data_train, step=step)
+                    accuracy, bal_accuracy, gap_rms = self.metrics(part_data_test, False, step)
                     print(f'Test accuracy for step {step}: {accuracy}\n')
                     for i, name in enumerate(self.group_names):
                         print(f'Test GAP RMS for {name} and step {step}: {gap_rms[i]}\n')
@@ -475,7 +501,7 @@ class GroupFairness():
              'w_reg': self.wasserstein_regularizer}
         
 
-        accuracy, bal_accuracy, gap_rms = self.metrics(data_test, False, step = self.epoch)
+        accuracy, bal_accuracy, gap_rms = self.metrics(part_data_test, False, step = self.epoch)
         print(str(parameter))
         parameter['test-acc'] = accuracy.numpy()
         for i, name in enumerate(self.group_names):
@@ -485,13 +511,13 @@ class GroupFairness():
         for i, name in enumerate(self.group_names):
             print(f'Final test GAP RMS for {name}: {gap_rms[i]}')
         print(f'Final test balanced accuracy: {bal_accuracy}\n\n')
-        with open('summary/adult7.out', 'a') as f:
-            f.writelines(str(parameter) + '\n')
-        f.close()
+        #with open('summary/adult7.out', 'a') as f:
+        #    f.writelines(str(parameter) + '\n')
+        #f.close()
 
         # Saving model
         filename = f'saved-models/seed-{self.seed}-lr-{self.learning_rate}-wlr-{self.wasserstein_lr}-epsilon-{self.epsilon}-w_reg-{self.wasserstein_regularizer}-l2_reg-{self.l2_regularizer}'
-        self.classifier.model.save(filename)
+        self.classifier.save(filename)
 
             
                 

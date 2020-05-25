@@ -52,7 +52,7 @@ def toxicity_model(embedding_matrix, hparams = {\
     # Add a flatten layer, a fully-connected layer and an output layer.
     model.add(keras.layers.Flatten())
     model.add(keras.layers.Dense(128, activation='relu'))
-    model.add(keras.layers.Dense(1))
+    model.add(keras.layers.Dense(2))
 
     return model
 
