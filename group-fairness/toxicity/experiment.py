@@ -1,7 +1,7 @@
 import numpy as np
 import tensorflow as tf
 from adult_modified import preprocess_adult_data
-import setup2
+import setup
 import sys
 
 # Adult data processing
