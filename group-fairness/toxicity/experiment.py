@@ -16,7 +16,6 @@ import tensorflow.keras as keras
 from tensorflow.keras import layers
 from tensorflow.keras.preprocessing import sequence
 from tensorflow.keras.preprocessing import text
-tf.debugging.set_log_device_placement(True)
 import setup
 
 
@@ -33,12 +32,10 @@ hparams = {
 }
 
 
-toxicity_data_url = ("https://raw.githubusercontent.com/conversationai/"
-                     "unintended-ml-bias-analysis/master/data/")
 
-data_train = pd.read_csv(toxicity_data_url + "wiki_train.csv")
-data_test = pd.read_csv(toxicity_data_url + "wiki_test.csv")
-data_vali = pd.read_csv(toxicity_data_url + "wiki_dev.csv")
+data_train = pd.read_csv('~/toxicity-data/wiki_train.csv')
+data_test = pd.read_csv('~/toxicity-data/wiki_test.csv')
+data_vali = pd.read_csv('~/toxicity-data/wiki_vali.csv')
 
 labels_train = data_train["is_toxic"].values.reshape(-1, 1) * 1.0
 labels_test = data_test["is_toxic"].values.reshape(-1, 1) * 1.0

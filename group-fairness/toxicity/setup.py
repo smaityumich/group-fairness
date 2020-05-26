@@ -496,7 +496,7 @@ class GroupFairness():
                     for i, name in enumerate(self.group_names):
                         print(f'Test GAP RMS for {name} and step {step}: {gap_rms[i]}\n')
                     print(f'Test balanced accuracy for step {step}: {bal_accuracy}\n\n')
-
+            print(f'Done step {step}')
         parameter = {'epsilon': self.epsilon, 'lr': self.learning_rate, 'wlr': self.wasserstein_lr,\
              'w_reg': self.wasserstein_regularizer}
         
