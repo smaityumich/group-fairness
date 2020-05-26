@@ -501,7 +501,7 @@ class GroupFairness():
              'w_reg': self.wasserstein_regularizer}
         
 
-        accuracy, bal_accuracy, gap_rms = self.metrics(part_data_test, False, step = self.epoch)
+        accuracy, bal_accuracy, gap_rms = self.metrics(data_test, False, step = self.epoch)
         print(str(parameter))
         parameter['test-acc'] = accuracy.numpy()
         for i, name in enumerate(self.group_names):
@@ -514,7 +514,7 @@ class GroupFairness():
 
         # False positive rate , and FNR
         x, y, groups = data_test
-        labels = y[:, 1]
+        labels = tf.cast(y[:, 1], dtype = tf.float32)
         predictions = tf.argmax(self.classifier(x), axis = 1)
 
         parameter['fpr'] = utils.false_positive_rate(labels, predictions)

@@ -95,8 +95,8 @@ lr = float(sys.argv[1])
 wlr = float(sys.argv[2])
 w_reg = float(sys.argv[3])
 eps = float(sys.argv[4])
-epoch = 10000
-start_training = 500
+epoch = 100
+start_training = 50
 seed = 1
 
 experiment = setup.GroupFairness(learning_rate=lr, wasserstein_lr=wlr, wasserstein_regularizer=w_reg,\
