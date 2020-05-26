@@ -530,7 +530,7 @@ class GroupFairness():
 
         with open('summary/toxicity1.out', 'a') as f:
             f.writelines(str(parameter) + '\n')
-        #f.close()
+        f.close()
         #print(parameter)
         # Saving model
         filename = f'saved-models/seed-{self.seed}-lr-{self.learning_rate}-wlr-{self.wasserstein_lr}-epsilon-{self.epsilon}-w_reg-{self.wasserstein_regularizer}-l2_reg-{self.l2_regularizer}'
