@@ -12,7 +12,7 @@ eps = [0.1, 0.01, 0.001]
 lrs = [1e-3, 1e-4, 1e-5]
 
 
-os.system('touch summary/adult7.out')
+os.system('touch summary/toxicity1.out')
 
 
 
@@ -22,7 +22,7 @@ for reg_wasserstein, wlr, epsilon, lr in itertools.product(reg_w, wrls, eps, lrs
         
     with open(job_file,'w') as fh:
         fh.writelines("#!/bin/bash\n")
-        fh.writelines(f"#SBATCH --job-name=adult.job\n")
+        fh.writelines(f"#SBATCH --job-name=toxicity.job\n")
         fh.writelines('#SBATCH --nodes=1\n')
         fh.writelines('#SBATCH --cpus-per-task=5\n')
         fh.writelines('#SBATCH --mem-per-cpu=6gb\n')

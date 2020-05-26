@@ -488,10 +488,10 @@ class GroupFairness():
 
                 self.train_step(batch_train_data, step)
                 self.test_step(batch_test_data, step)
-                if step % 250 == 0:
+                if step % 1000 == 0:
                     
                     #_ = self.metrics(data_train, step=step)
-                    accuracy, bal_accuracy, gap_rms = self.metrics(part_data_test, False, step)
+                    accuracy, bal_accuracy, gap_rms = self.metrics(data_test, False, step)
                     print(f'Test accuracy for step {step}: {accuracy}\n')
                     for i, name in enumerate(self.group_names):
                         print(f'Test GAP RMS for {name} and step {step}: {gap_rms[i]}\n')
@@ -530,8 +530,8 @@ class GroupFairness():
 
         with open('summary/toxicity1.out', 'a') as f:
             f.writelines(str(parameter) + '\n')
-        #f.close()
-        #print(parameter)
+        f.close()
+        print(parameter)
         # Saving model
         filename = f'saved-models/seed-{self.seed}-lr-{self.learning_rate}-wlr-{self.wasserstein_lr}-epsilon-{self.epsilon}-w_reg-{self.wasserstein_regularizer}-l2_reg-{self.l2_regularizer}'
         self.classifier.save(filename)
