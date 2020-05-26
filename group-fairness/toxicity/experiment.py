@@ -91,12 +91,12 @@ data_train = text_train, labels_train, groups_train
 data_test = text_test, labels_test, groups_test
 
 # Setup parameters 
-lr = float(sys.argv[1])
-wlr = float(sys.argv[2])
-w_reg = float(sys.argv[3])
-eps = float(sys.argv[4])
-epoch = 100
-start_training = 50
+lr = 0.001#float(sys.argv[1])
+wlr = 0.001#float(sys.argv[2])
+w_reg = 10#float(sys.argv[3])
+eps = 0.1#float(sys.argv[4])
+epoch = 10
+start_training = 5
 seed = 1
 
 experiment = setup.GroupFairness(learning_rate=lr, wasserstein_lr=wlr, wasserstein_regularizer=w_reg,\

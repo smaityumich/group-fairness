@@ -514,21 +514,24 @@ class GroupFairness():
 
         # False positive rate , and FNR
         x, y, groups = data_test
+        groups = tf.cast(groups, dtype = tf.float32)
         labels = tf.cast(y[:, 1], dtype = tf.float32)
-        predictions = tf.argmax(self.classifier(x), axis = 1)
+        predictions = tf.cast(tf.argmax(self.classifier(x), axis = 1), dtype = tf.float32)
 
-        parameter['fpr'] = utils.false_positive_rate(labels, predictions)
-        parameter['fnr'] = utils.false_negative_rate(labels, predictions)
-        group_fprs = utils.group_false_positive_rates(labels, predictions, groups)
-        group_fnrs = utils.group_false_negative_rates(labels, predictions, groups)
+        parameter['fpr'] = 1 - tf.reduce_mean(predictions[labels > 0]).numpy()
+        parameter['fnr'] = tf.reduce_mean(predictions[labels <= 0]).numpy()
+        #group_fprs = utils.group_false_positive_rates(labels, predictions, groups)
+        #group_fnrs = utils.group_false_negative_rates(labels, predictions, groups)
         for i, name in enumerate(self.group_names):
-            parameter[f'fpr-{name}'] = group_fprs[i]
-            parameter[f'fnr-{name}'] = group_fnrs[i]
+            predictions_group = predictions[groups[:, i] == 1]
+            labels_group = labels[groups[:, i] == 1]
+            parameter[f'fpr-{name}'] = 1 - tf.reduce_mean(predictions_group[labels_group > 0]).numpy()
+            parameter[f'fnr-{name}'] = tf.reduce_mean(predictions_group[labels_group <= 0]).numpy()
 
         with open('summary/toxicity1.out', 'a') as f:
             f.writelines(str(parameter) + '\n')
-        f.close()
-
+        #f.close()
+        #print(parameter)
         # Saving model
         filename = f'saved-models/seed-{self.seed}-lr-{self.learning_rate}-wlr-{self.wasserstein_lr}-epsilon-{self.epsilon}-w_reg-{self.wasserstein_regularizer}-l2_reg-{self.l2_regularizer}'
         self.classifier.save(filename)

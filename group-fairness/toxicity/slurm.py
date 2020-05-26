@@ -25,7 +25,7 @@ for reg_wasserstein, wlr, epsilon, lr in itertools.product(reg_w, wrls, eps, lrs
         fh.writelines(f"#SBATCH --job-name=adult.job\n")
         fh.writelines('#SBATCH --nodes=1\n')
         fh.writelines('#SBATCH --cpus-per-task=5\n')
-        fh.writelines('#SBATCH --mem-per-cpu=2gb\n')
+        fh.writelines('#SBATCH --mem-per-cpu=6gb\n')
         fh.writelines("#SBATCH --time=03:00:00\n")
         fh.writelines("#SBATCH --account=yuekai1\n")
         fh.writelines("#SBATCH --mail-type=NONE\n")

@@ -20,21 +20,21 @@ def label_specific_entropy_loss(logits, label):
     probabilities, _ = tf.linalg.normalize(tf.nn.softmax(logits), ord = 1, axis = 1)
     return tf.reduce_mean(-tf.math.log(probabilities[:, label]))
 
-
+@tf.function
 def false_negative_rate(labels, predictions):
     # Returns false negative rate for given labels and predictions.
-    if tf.reduce_sum(labels > 0) == 0:  # Any positives?
-        return 0.0
+    if tf.reduce_sum(labels).numpy() == 0:  # Any positives?
+        return tf.cast(0, dtype = tf.float32)
     else:
-        return tf.reduce_mean(predictions[labels > 0] <= 0)
+        return 1 - tf.reduce_mean(predictions[labels > 0])
 
 
 def false_positive_rate(labels, predictions):
     # Returns false positive rate for given labels and predictions.
-    if tf.reduce_sum(labels <= 0) == 0:  # Any negatives?
-        return 0.0
+    if tf.reduce_sum(tf.cast(labels <= 0, dtype = tf.float32)).numpy() == 0:  # Any negatives?
+        return tf.cast(0, dtype = tf.float32)
     else:
-        return tf.reduce_mean(predictions[labels <= 0] > 0)
+        return tf.reduce_mean(predictions[labels <= 0])
 
 
 def group_false_negative_rates(labels, predictions, groups):
@@ -43,11 +43,11 @@ def group_false_negative_rates(labels, predictions, groups):
     fnrs = []
     for ii in range(groups.shape[1]):
         labels_ii = labels[groups[:, ii] == 1]
-        if tf.reduce_sum(labels_ii > 0) > 0:  # Any positives?
+        if tf.reduce_sum(tf.cast(labels_ii > 0, dtype = tf.float32)).numpy() > 0:  # Any positives?
             predictions_ii = predictions[groups[:, ii] == 1]
             fnr_ii = tf.reduce_mean(predictions_ii[labels_ii > 0] <= 0)
         else:
-            fnr_ii = 0.0
+            fnr_ii = tf.cast(0, dtype = tf.float32)
         fnrs.append(fnr_ii)
     return fnrs
 
@@ -58,10 +58,10 @@ def group_false_positive_rates(labels, predictions, groups):
     fprs = []
     for ii in range(groups.shape[1]):
         labels_ii = labels[groups[:, ii] == 1]
-        if tf.reduce_sum(labels_ii <= 0) > 0:  # Any negatives?
+        if tf.reduce_sum(tf.cast(labels_ii <= 0, dtype = tf.float32)).numpy() > 0:  # Any negatives?
             predictions_ii = predictions[groups[:, ii] == 1]
             fpr_ii = tf.reduce_mean(predictions_ii[labels_ii <= 0] > 0)
         else:
-            fpr_ii = 0.0
+            fpr_ii = tf.cast(0, dtype = tf.float32)
         fprs.append(fpr_ii)
     return fprs
