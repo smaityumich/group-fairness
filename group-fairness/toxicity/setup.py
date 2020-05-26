@@ -511,9 +511,23 @@ class GroupFairness():
         for i, name in enumerate(self.group_names):
             print(f'Final test GAP RMS for {name}: {gap_rms[i]}')
         print(f'Final test balanced accuracy: {bal_accuracy}\n\n')
-        #with open('summary/adult7.out', 'a') as f:
-        #    f.writelines(str(parameter) + '\n')
-        #f.close()
+
+        # False positive rate , and FNR
+        x, y, groups = data_test
+        labels = y[:, 1]
+        predictions = tf.argmax(self.classifier(x), axis = 1)
+
+        parameter['fpr'] = utils.false_positive_rate(labels, predictions)
+        parameter['fnr'] = utils.false_negative_rate(labels, predictions)
+        group_fprs = utils.group_false_positive_rates(labels, predictions, groups)
+        group_fnrs = utils.group_false_negative_rates(labels, predictions, groups)
+        for i, name in enumerate(self.group_names):
+            parameter[f'fpr-{name}'] = group_fprs[i]
+            parameter[f'fnr-{name}'] = group_fnrs[i]
+
+        with open('summary/toxicity1.out', 'a') as f:
+            f.writelines(str(parameter) + '\n')
+        f.close()
 
         # Saving model
         filename = f'saved-models/seed-{self.seed}-lr-{self.learning_rate}-wlr-{self.wasserstein_lr}-epsilon-{self.epsilon}-w_reg-{self.wasserstein_regularizer}-l2_reg-{self.l2_regularizer}'
