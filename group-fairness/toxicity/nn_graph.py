@@ -78,7 +78,7 @@ class NNGraph(keras.Model):
 
         
       
-        self.model = keras.models.Sequential(self.layers, name = name)
+        self.model = keras.models.Sequential(self.Layers, name = name)
 
     # Set forward pass
     def call(self, x, probability = False):
